@@ -1,0 +1,89 @@
+﻿Shruti Dadhich
+sdnk1993@gmail.com
+8949829904
+
+SUMMERY
+
+Around 1+ years of experience in designing, developing, and maintain software applications for various platforms using programming languages and tools. I collaborate with cross-functional teams, troubleshoot issues, and document code and processes. I stay up-to-date with the latest trends and best practices in software development to ensure that software applications are functional, efficient, maintainable and secure.
+
+KEY SKILLS
+
+    • Python, Java
+    • frameworks: Django, Django Rest Framework,FastAPI
+    • Postgresql
+    • GIT and GITHUB
+    • JavaScript, CSS3, HTML5
+    • Problem-solving skills, Communication skills
+
+EMPLOYMENT AND PROJECTS:
+    • Bit squad Software Pvt.Ltd. 
+
+Projects Details
+
+Project 1: Title: Conto (March’23 to till date)
+    
+Technologies used: Python, Django Rest Framework, Git, Postgres
+        ◦ It contains all the functionalities related to Payment.
+        ◦ It can generate the report of Login, Payment, Customer, Bills and Transactions.
+        ◦ Backend using python, Django Rest Framework, Postgres for storing and maintain records and relationship.
+
+Roles and Responsibilities
+    • Developing and maintaining the server-side of the application, which includes the database, APIs, and backend systems.
+    • Writing code in server-side programming languages and frameworks like Python,Django.
+    • Designing and implementing data storage solutions using Postgres database.
+    • Ensuring high performance and responsiveness of the backend systems.
+    • Debugging and resolving technical issues that arise in the backend.
+        ◦ Implementing security measures to protect user data.
+
+    • Project 2:
+Title: Creative Rabbit, Backend Developer (Jan’22 to July’22)
+Technologies Used: Python, FastAPI, Postgres, Gitlab, ReactJS.
+    • It's a simple application to purchase and sale of domain.
+    • Developed Api's using FastAPI to evaluate the request and save the data into database.
+    • Integrated Third Party Domain Api such as DNS sample and Go daddy.
+    • Faster the existing Code by 10x by using asynchronous programming.
+    • Integrated Stripe Payment gateway to handle the sale and purchase transactions of domain.
+
+ROLES AND RESPONSIBILITIES:
+    • Designing and implementing database schemas, models, and queries to support website functionality.
+    • Collaborating with front-end developers, designers, and other stakeholders to understand requirements and ensure seamless integration between the server-side and client-side of the application.
+    • Keeping up-to-date with the latest trends and best practices in web development, and contributing to
+    • the development of the website’s backend architecture and technology stack.
+    • Debugging and resolving server-side issues and bugs.
+    • Ensuring the scalability, performance, and security of the website’s backend infrastructure.
+
+    • Project 3:
+Title: Payroll in Accounts, Backend Developer (Jan’21 to Dec’21)
+Technologies Used: Python, Postgres, Gitlab, Django Rest Framework.
+
+    • Payroll System is to manage the details of Salary, Payments,Payroll, Employee, Working Points. It manages all the information about Salary, Appraisals, Working Points, Salary.
+    • It has to store all the records of all employees within the organization to assign work to person and right salary and perks to their eligible employees.
+    • It can also manage employee information efficiently, define the emoluments, deductions, leave, tax etc, generated pay-slip, generate and manage the payroll processes according to salary structure assigned to the employees etc.
+
+ROLES AND RESPONSIBILITIES:
+        ◦ Develop back-end components to improve responsiveness and overall performance.
+        ◦ Integrate user-facing elements into applications.
+        ◦ Test and debug programs.
+        ◦ Improve functionality of existing systems.
+        ◦ Coordinate with internal teams to understand user requirements and provide technical solutions.
+        ◦ Creates customized applications for smaller tasks to enhance website capability based on
+business needs.
+        ◦ Builds table frames and forms and writes script within the browser to enhance site functionality.
+        ◦ Ensures web pages are functional across different browser types; conducts tests to verify user
+functionality.
+
+    • Project 4:
+Title: Online Learning Platform, Backend Developer (July’21 to Dec’21)
+Technologies Used: Python, Postgres, Gitlab, Django, HTML, CSS, Javascript. An e-learning platform is a website or application that provides online educational courses, materials, and resources to students. As a Django developer, your role in developing an e-learning platform would involve creating a robust, user-friendly web application that allows students to access and complete courses online.
+
+ROLES AND RESPONSIBILITIES:
+Designed and developed a full-stack e-learning platform using Django and Python, including front-end interfaces and back-end data models.
+        ◦ Worked closely with stakeholders, including teachers and administrators, to understand their
+needs and requirements, and iteratively developed the platform to meet those needs.
+        ◦ Implemented features such as course creation and management, user authentication and authorization, course materials distribution, and progress tracking.
+        ◦ Developed automated tests to ensure high quality and reliable functionality of the e-learning platform.
+        ◦ Utilized Django's built-in security features to protect sensitive user data and ensure a secure online learning environment.
+        ◦ Improved platform scalability and performance, allowing it to handle increased traffic and
+user load.
+
+DECLARATION: I do here by declare that the details provided above are true to the best of my knowledge and ability.

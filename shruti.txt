@@ -1,0 +1,3223 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\iitia> ssh root@161.35.20.94
+The authenticity of host '161.35.20.94 (161.35.20.94)' can't be established.
+ED25519 key fingerprint is SHA256:vcW4CsZo6xR5Ze45GEXu1pfHu4BZldpRQL8Cs34BmCc.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '161.35.20.94' (ED25519) to the list of known hosts.
+root@161.35.20.94's password:
+Permission denied, please try again.
+root@161.35.20.94's password:
+Permission denied, please try again.
+root@161.35.20.94's password:
+root@161.35.20.94: Permission denied (publickey,password).
+PS C:\Users\iitia> ssh bitsquad@161.35.20.94
+bitsquad@161.35.20.94's password:
+Welcome to Ubuntu 22.10 (GNU/Linux 5.19.0-23-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Mar 29 19:13:08 UTC 2023
+
+  System load:  0.01708984375      Users logged in:       2
+  Usage of /:   13.5% of 24.06GB   IPv4 address for eth0: 161.35.20.94
+  Memory usage: 37%                IPv4 address for eth0: 10.19.0.5
+  Swap usage:   0%                 IPv4 address for eth1: 10.114.0.2
+  Processes:    117
+
+  => There is 1 zombie process.
+
+8 updates can be applied immediately.
+8 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+*** System restart required ***
+Last login: Wed Mar 29 19:03:59 2023 from 161.35.20.94
+bitsquad@bitsquadattend:~$ ls
+BitAttend  env
+bitsquad@bitsquadattend:~$ cd BitAttend/
+bitsquad@bitsquadattend:~/BitAttend$ ls
+attendance  bin  bitattend  env  lib  logs  manage.py  pyvenv.cfg  requirements.txt  run
+bitsquad@bitsquadattend:~/BitAttend$ ufw allow 80
+ERROR: You need to be root to run this script
+bitsquad@bitsquadattend:~/BitAttend$ sudo ufw allow 80
+[sudo] password for bitsquad:
+Rule added
+Rule added (v6)
+bitsquad@bitsquadattend:~/BitAttend$ 161.35.20.94^C
+bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 11, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 22, in <module>
+    main()
+  File "/home/bitsquad/BitAttend/manage.py", line 13, in main
+    raise ImportError(
+ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+bitsquad@bitsquadattend:~/BitAttend$ python3 manage.py runserver 0.0.0.0:8000
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 11, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 22, in <module>
+    main()
+  File "/home/bitsquad/BitAttend/manage.py", line 13, in main
+    raise ImportError(
+ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+bitsquad@bitsquadattend:~/BitAttend$ ls
+attendance  bin  bitattend  env  lib  logs  manage.py  pyvenv.cfg  requirements.txt  run
+bitsquad@bitsquadattend:~/BitAttend$ bash env/bin/activate
+You must source this script: $ source env/bin/activate
+bitsquad@bitsquadattend:~/BitAttend$ source env/bin/activate
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:80001
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 30, 2023 - 00:45:59
+Django version 4.1.5, using settings 'attendance.settings'
+Starting development server at http://0.0.0.0:80001/
+Quit the server with CONTROL-C.
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/commands/runserver.py", line 158, in inner_run
+    run(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/servers/basehttp.py", line 236, in run
+    httpd = httpd_cls(server_address, WSGIRequestHandler, ipv6=ipv6)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/servers/basehttp.py", line 76, in __init__    super().__init__(*args, **kwargs)
+  File "/usr/lib/python3.10/socketserver.py", line 452, in __init__
+    self.server_bind()
+  File "/usr/lib/python3.10/wsgiref/simple_server.py", line 50, in server_bind
+    HTTPServer.server_bind(self)
+  File "/usr/lib/python3.10/http/server.py", line 136, in server_bind
+    socketserver.TCPServer.server_bind(self)
+  File "/usr/lib/python3.10/socketserver.py", line 466, in server_bind
+    self.socket.bind(self.server_address)
+OverflowError: bind(): port must be 0-65535.
+^C^C^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 30, 2023 - 00:46:06
+Django version 4.1.5, using settings 'attendance.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo ufw allow 8000
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+(env) bitsquad@bitsquadattend:~/BitAttend$ cd /etc/nginx/
+(env) bitsquad@bitsquadattend:/etc/nginx$ ls
+conf.d        fastcgi_params  koi-win     modules-available  nginx.conf    scgi_params      sites-enabled  uwsgi_params
+fastcgi.conf  koi-utf         mime.types  modules-enabled    proxy_params  sites-available  snippets       win-utf
+(env) bitsquad@bitsquadattend:/etc/nginx$ cd sites-enabled/
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-enabled$ ls
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-enabled$ sudo a2dissite 000-default.conf
+Site 000-default disabled.
+To activate the new configuration, you need to run:
+  systemctl reload apache2
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-enabled$ sudo service apache2 restart
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-enabled$ ls
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-enabled$ cd ../
+(env) bitsquad@bitsquadattend:/etc/nginx$ ls
+conf.d        fastcgi_params  koi-win     modules-available  nginx.conf    scgi_params      sites-enabled  uwsgi_params
+fastcgi.conf  koi-utf         mime.types  modules-enabled    proxy_params  sites-available  snippets       win-utf
+(env) bitsquad@bitsquadattend:/etc/nginx$ cd sites-available/
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ls
+BitAttend
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo a2ensite BitAttend
+ERROR: Site BitAttend does not exist!
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ vim BitAttend
+
+
+Press ENTER or type command to continue
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo service nginx restart
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ vim BitAttend
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo sudo apt remove apache2.*^C
+Reading state information... Done
+Note, selecting 'apache2.2-common' for glob 'apache2.*'
+Package 'apache2.2-common' is not installed, so not removed
+0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo service nginx restart
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo apt remove apache2.*11^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo apt remove apache2
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.3-0
+Use 'sudo apt autoremove' to remove them.
+The following packages will be REMOVED:
+  apache2
+0 upgraded, 0 newly installed, 1 to remove and 4 not upgraded.
+After this operation, 547 kB disk space will be freed.
+Do you want to continue? [Y/n] Y
+(Reading database ... 75467 files and directories currently installed.)
+Removing apache2 (2.4.54-2ubuntu1.2) ...
+Processing triggers for man-db (2.10.2-2) ...
+Processing triggers for ufw (0.36.1-4build1) ...
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo service nginx restart
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo a2ensudo ln -s /etc/nginx/sites-available/BitAttend /etc/nginx/sites-enabled/BitAttendsudo ln -s /etc/nginx/sites-available/BitAttend /etc/nginx/sites-enabled/BitAttend^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo ln -s /etc/nginx/sites-available/BitAttend /etc/nginx/sites-enabled/BitAttend
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo service nginx restart
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ journalctl -xeu nginx.service
+Hint: You are currently not seeing messages from other users and the system.
+      Users in groups 'adm', 'systemd-journal' can see all messages.
+      Pass -q to turn off this notice.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+-- No entries --
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ [200~journalctl -xeu nginx.service~^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ journalctl -xeu nginx.service
+Hint: You are currently not seeing messages from other users and the system.
+      Users in groups 'adm', 'systemd-journal' can see all messages.
+      Pass -q to turn off this notice.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+-- No entries --
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo service nginx restart
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ systemctl status nginx.service
+Reading state information... Done
+nginx is already the newest version (1.22.0-1ubuntu1.1).
+The following packages were automatically installed and are no longer required:
+  apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.3-0
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo apt autoremove
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  apache2-bin apache2-data apache2-utils libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.3-0
+0 upgraded, 0 newly installed, 8 to remove and 4 not upgraded.
+After this operation, 7681 kB disk space will be freed.
+Do you want to continue? [Y/n] Y
+(Reading database ... 75415 files and directories currently installed.)
+Removing apache2-bin (2.4.54-2ubuntu1.2) ...
+dpkg: warning: while removing apache2-bin, directory '/var/lib/apache2' not empty so not removed
+Removing apache2-data (2.4.54-2ubuntu1.2) ...
+Removing apache2-utils (2.4.54-2ubuntu1.2) ...
+Removing libaprutil1-dbd-sqlite3:amd64 (1.6.1-5ubuntu4.22.10.1) ...
+Removing libaprutil1-ldap:amd64 (1.6.1-5ubuntu4.22.10.1) ...
+Removing libaprutil1:amd64 (1.6.1-5ubuntu4.22.10.1) ...
+Removing libapr1:amd64 (1.7.0-8ubuntu0.22.10.1) ...
+Removing liblua5.3-0:amd64 (5.3.6-1build1) ...
+Processing triggers for man-db (2.10.2-2) ...
+Processing triggers for libc-bin (2.36-0ubuntu4) ...
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo apt install nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+nginx is already the newest version (1.22.0-1ubuntu1.1).
+0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo apt install nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+nginx is already the newest version (1.22.0-1ubuntu1.1).
+0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ systemctl status nginx.service
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Wed 2023-03-29 19:23:06 UTC; 1min 23s ago
+   Duration: 1min 7.097s
+       Docs: man:nginx(8)
+    Process: 48310 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=1/FAILURE)
+        CPU: 18ms
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo service nginx restart
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ systemctl status nginx.service
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Wed 2023-03-29 19:24:37 UTC; 11s ago
+   Duration: 1min 7.097s
+       Docs: man:nginx(8)
+    Process: 48611 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=1/FAILURE)
+        CPU: 28ms
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo service nginx starty
+Usage: nginx {start|stop|restart|reload|force-reload|status|configtest|rotate|upgrade}
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo service nginx starty
+Usage: nginx {start|stop|restart|reload|force-reload|status|configtest|rotate|upgrade}
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo service nginx start
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ systemctl status nginx.service
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Wed 2023-03-29 19:25:38 UTC; 6s ago
+   Duration: 1min 7.097s
+       Docs: man:nginx(8)
+    Process: 48694 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=1/FAILURE)
+        CPU: 19ms
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo systemctl status nginx.service
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Wed 2023-03-29 19:25:38 UTC; 10s ago
+   Duration: 1min 7.097s
+       Docs: man:nginx(8)
+    Process: 48694 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=1/FAILURE)
+        CPU: 19ms
+
+Mar 29 19:25:38 bitsquadattend systemd[1]: Starting A high performance web server and a reverse proxy server...
+Mar 29 19:25:38 bitsquadattend nginx[48694]: nginx: [emerg] unknown directive "pstream" in /etc/nginx/sites-enabled/Bit>Mar 29 19:25:38 bitsquadattend nginx[48694]: nginx: configuration file /etc/nginx/nginx.conf test failed
+Mar 29 19:25:38 bitsquadattend systemd[1]: nginx.service: Control process exited, code=exited, status=1/FAILURE
+Mar 29 19:25:38 bitsquadattend systemd[1]: nginx.service: Failed with result 'exit-code'.
+Mar 29 19:25:38 bitsquadattend systemd[1]: Failed to start A high performance web server and a reverse proxy server.
+...skipping...
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Wed 2023-03-29 19:25:38 UTC; 10s ago
+   Duration: 1min 7.097s
+       Docs: man:nginx(8)
+    Process: 48694 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=1/FAILURE)
+        CPU: 19ms
+
+Mar 29 19:25:38 bitsquadattend systemd[1]: Starting A high performance web server and a reverse proxy server...
+Mar 29 19:25:38 bitsquadattend nginx[48694]: nginx: [emerg] unknown directive "pstream" in /etc/nginx/sites-enabled/Bit>Mar 29 19:25:38 bitsquadattend nginx[48694]: nginx: configuration file /etc/nginx/nginx.conf test failed
+Mar 29 19:25:38 bitsquadattend systemd[1]: nginx.service: Control process exited, code=exited, status=1/FAILURE
+Mar 29 19:25:38 bitsquadattend systemd[1]: nginx.service: Failed with result 'exit-code'.
+Mar 29 19:25:38 bitsquadattend systemd[1]: Failed to start A high performance web server and a reverse proxy server.
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+...skipping...
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Wed 2023-03-29 19:25:38 UTC; 10s ago
+   Duration: 1min 7.097s
+       Docs: man:nginx(8)
+    Process: 48694 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=1/FAILURE)
+        CPU: 19ms
+
+Mar 29 19:25:38 bitsquadattend systemd[1]: nginx.service: Control process exited, code=exited, status=1/FAILURE
+Mar 29 19:25:38 bitsquadattend systemd[1]: nginx.service: Failed with result 'exit-code'.
+Mar 29 19:25:38 bitsquadattend systemd[1]: Failed to start A high performance web server and a reverse proxy server.
+~
+
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ ^C
+(env) bitsquad@bitsquadattend:/etc/nginx/sites-available$ sudo vim /etc/nginx/conf.d/upstream.conf
+(env) bitsquad@bitsquadattend:/etc/nginx/conf.d$ sudo apt remove nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following packages will be REMOVED:
+  nginx
+0 upgraded, 0 newly installed, 1 to remove and 4 not upgraded.
+After this operation, 52.2 kB disk space will be freed.
+Do you want to continue? [Y/n] Y
+(Reading database ... 74922 files and directories currently installed.)
+Removing nginx (1.22.0-1ubuntu1.1) ...
+(env) bitsquad@bitsquadattend:/etc/nginx/conf.d$ sudo apt install nginx
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  nginx
+0 upgraded, 1 newly installed, 0 to remove and 4 not upgraded.
+Need to get 3950 B of archives.
+After this operation, 52.2 kB of additional disk space will be used.
+Get:1 http://mirrors.digitalocean.com/ubuntu kinetic-updates/main amd64 nginx amd64 1.22.0-1ubuntu1.1 [3950 B]
+Fetched 3950 B in 3s (1256 B/s)
+Selecting previously unselected package nginx.
+(Reading database ... 74919 files and directories currently installed.)
+Preparing to unpack .../nginx_1.22.0-1ubuntu1.1_amd64.deb ...
+Unpacking nginx (1.22.0-1ubuntu1.1) ...
+Setting up nginx (1.22.0-1ubuntu1.1) ...
+Scanning processes...
+Scanning candidates...
+Scanning processor microcode...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+Failed to check for processor microcode upgrades.
+
+Restarting services...
+ /etc/needrestart/restart.d/dbus.service
+Running as unit: restart-dbus.service
+Service restarts being deferred:
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Connection to 161.35.20.94 closed by remote host.
+Connection to 161.35.20.94 closed.
+PS C:\Users\iitia> ssh bitsquad@161.35.20.941
+ssh: Could not resolve hostname 161.35.20.941: No such host is known.
+PS C:\Users\iitia> ssh bitsquad@161.35.20.94
+bitsquad@161.35.20.94's password:
+PS C:\Users\iitia> ^C
+PS C:\Users\iitia> ^C
+PS C:\Users\iitia> ssh bitsquad@161.35.20.94
+bitsquad@161.35.20.94's password:
+Permission denied, please try again.
+bitsquad@161.35.20.94's password:
+Connection closed by 161.35.20.94 port 22
+PS C:\Users\iitia> ssh bitsquad@161.35.20.94
+bitsquad@161.35.20.94's password:
+Welcome to Ubuntu 22.10 (GNU/Linux 5.19.0-23-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Mar 29 20:54:23 UTC 2023
+
+  System load:  0.0                Users logged in:       1
+  Usage of /:   13.4% of 24.06GB   IPv4 address for eth0: 161.35.20.94
+  Memory usage: 33%                IPv4 address for eth0: 10.19.0.5
+  Swap usage:   0%                 IPv4 address for eth1: 10.114.0.2
+  Processes:    105
+
+8 updates can be applied immediately.
+8 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+*** System restart required ***
+Last login: Wed Mar 29 19:29:31 2023 from 161.35.20.94
+bitsquad@bitsquadattend:~$ sudo su
+[sudo] password for bitsquad:
+sudo: a password is required
+bitsquad@bitsquadattend:~$ sudo service nginx restart
+[sudo] password for bitsquad:
+Job for nginx.service failed because the control process exited with error code.
+See "systemctl status nginx.service" and "journalctl -xeu nginx.service" for details.
+bitsquad@bitsquadattend:~$ systemctl status nginx.service
+× nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/lib/systemd/system/nginx.service; enabled; preset: enabled)
+     Active: failed (Result: exit-code) since Wed 2023-03-29 20:54:54 UTC; 42s ago
+   Duration: 1min 7.097s
+       Docs: man:nginx(8)
+    Process: 53256 ExecStartPre=/usr/sbin/nginx -t -q -g daemon on; master_process on; (code=exited, status=1/FAILURE)
+        CPU: 18ms
+bitsquad@bitsquadattend:~$ sudo apt update
+sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib nginx curl
+Get:1 http://mirrors.digitalocean.com/ubuntu kinetic InRelease [267 kB]
+Hit:2 http://mirrors.digitalocean.com/ubuntu kinetic-updates InRelease
+Hit:3 https://repos-droplet.digitalocean.com/apt/droplet-agent main InRelease
+Get:4 http://security.ubuntu.com/ubuntu kinetic-security InRelease [109 kB]
+Hit:5 http://mirrors.digitalocean.com/ubuntu kinetic-backports InRelease
+Get:6 http://security.ubuntu.com/ubuntu kinetic-security/main amd64 c-n-f Metadata [6120 B]
+Get:7 http://security.ubuntu.com/ubuntu kinetic-security/universe amd64 c-n-f Metadata [6772 B]
+Fetched 389 kB in 7s (53.6 kB/s)
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+4 packages can be upgraded. Run 'apt list --upgradable' to see them.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+python3-pip is already the newest version (22.2+dfsg-1ubuntu0.2).
+python3-dev is already the newest version (3.10.6-1).
+libpq-dev is already the newest version (14.7-0ubuntu0.22.10.1).
+postgresql is already the newest version (14+242ubuntu1).
+postgresql-contrib is already the newest version (14+242ubuntu1).
+nginx is already the newest version (1.22.0-1ubuntu1.1).
+curl is already the newest version (7.85.0-1ubuntu0.5).
+curl set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
+bitsquad@bitsquadattend:~$ sudo -u postgres psql
+could not change directory to "/home/bitsquad": Permission denied
+psql (14.7 (Ubuntu 14.7-0ubuntu0.22.10.1))
+Type "help" for help.
+
+postgres=# CREATE DATABASE bitattend;
+ERROR:  database "bitattend" already exists
+postgres=# CREATE DATABASE bitsq^C
+postgres=# CREATE USER bitsquad WITH PASSWORD 'bitsquad';
+ERROR:  role "bitsquad" already exists
+postgres=# CREATE USER bitsquaduser WITH PASSWORD 'bitsquad';
+CREATE ROLE
+postgres=# ALTER ROLE myprojectuser SET client_encoding TO 'utf8';
+ERROR:  role "myprojectuser" does not exist
+postgres=# ALTER ROLE bitsquaduser SET client_encoding TO 'utf8';1
+ALTER ROLE
+postgres-# ALTER ROLE bitsquaduser SET default_transaction_isolation TO 'read committed';
+ALTER ROLE bitsquaduser SET timezone TO 'UTC';
+ERROR:  syntax error at or near "1"
+LINE 1: 1
+        ^
+ALTER ROLE
+postgres=# ALTER ROLE bitsquaduser SET default_transaction_isolation TO 'read committed';
+ALTER ROLE
+postgres=# ALTER ROLE bitsquaduser SET timezone TO 'UTC';
+ALTER ROLE
+postgres=# GRANT ALL PRIVILEGES ON DATABASE bitattend TO bitsquaduser;
+GRANT
+postgres=# \q
+bitsquad@bitsquadattend:~$ sudo -H pip3 install --upgrade pip
+Requirement already satisfied: pip in /usr/lib/python3/dist-packages (22.2)
+Collecting pip
+  Downloading pip-23.0.1-py3-none-any.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 16.0 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 22.2
+    Not uninstalling pip at /usr/lib/python3/dist-packages, outside environment /usr
+    Can't uninstall 'pip'. No files were found to uninstall.
+Successfully installed pip-23.0.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+bitsquad@bitsquadattend:~$ ls
+BitAttend  env
+bitsquad@bitsquadattend:~$ cd BitAttend/
+bitsquad@bitsquadattend:~/BitAttend$ ls
+attendance  bin  bitattend  env  lib  logs  manage.py  pyvenv.cfg  requirements.txt  run
+bitsquad@bitsquadattend:~/BitAttend$ source env/bin/activate
+(env) bitsquad@bitsquadattend:~/BitAttend$ pip install django gunicorn psycopg2-binary
+Requirement already satisfied: django in ./env/lib/python3.10/site-packages (4.1.5)
+Requirement already satisfied: gunicorn in ./env/lib/python3.10/site-packages (20.1.0)
+Collecting psycopg2-binary
+  Downloading psycopg2_binary-2.9.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 20.8 MB/s eta 0:00:00
+Requirement already satisfied: sqlparse>=0.2.2 in ./env/lib/python3.10/site-packages (from django) (0.4.3)
+Requirement already satisfied: asgiref<4,>=3.5.2 in ./env/lib/python3.10/site-packages (from django) (3.6.0)
+Requirement already satisfied: setuptools>=3.0 in ./env/lib/python3.10/site-packages (from gunicorn) (59.6.0)
+Installing collected packages: psycopg2-binary
+Successfully installed psycopg2-binary-2.9.5
+(env) bitsquad@bitsquadattend:~/BitAttend$ ls
+attendance  bin  bitattend  env  lib  logs  manage.py  pyvenv.cfg  requirements.txt  run
+(env) bitsquad@bitsquadattend:~/BitAttend$ cd bi
+-bash: cd: bi: No such file or directory
+(env) bitsquad@bitsquadattend:~/BitAttend$ cd bitattend/
+(env) bitsquad@bitsquadattend:~/BitAttend/bitattend$ ls
+__init__.py  admin.py  migrations  static     tests.py  views.py
+__pycache__  apps.py   models.py   templates  urls.py
+(env) bitsquad@bitsquadattend:~/BitAttend/bitattend$ cd ../
+(env) bitsquad@bitsquadattend:~/BitAttend$ cd attendance/
+(env) bitsquad@bitsquadattend:~/BitAttend/attendance$ ls
+__init__.py  __pycache__  asgi.py  settings.py  static  urls.py  wsgi.py
+(env) bitsquad@bitsquadattend:~/BitAttend/attendance$ vim settings.py
+(env) bitsquad@bitsquadattend:~/BitAttend/attendance$ vim settings.py 1
+2 files to edit
+(env) bitsquad@bitsquadattend:~/BitAttend/attendance$ sudo vim settings.py
+(env) bitsquad@bitsquadattend:~/BitAttend/attendance$ sudo ufw allow 8000
+Skipping adding existing rule
+Skipping adding existing rule (v6)
+(env) bitsquad@bitsquadattend:~/BitAttend/attendance$ ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 Mar28 ?        00:01:02 /lib/systemd/systemd --system --deserialize 3root           2       0  0 Mar28 ?        00:00:00 [kthreadd]
+root           3       2  0 Mar28 ?        00:00:00 [rcu_gp]
+root           4       2  0 Mar28 ?        00:00:00 [rcu_par_gp]
+root           5       2  0 Mar28 ?        00:00:00 [netns]
+root           7       2  0 Mar28 ?        00:00:00 [kworker/0:0H-events_highpri]
+root           9       2  0 Mar28 ?        00:00:18 [kworker/0:1H-events_highpri]
+root          10       2  0 Mar28 ?        00:00:00 [mm_percpu_wq]
+root          11       2  0 Mar28 ?        00:00:00 [rcu_tasks_kthread]
+root          12       2  0 Mar28 ?        00:00:00 [rcu_tasks_rude_kthread]
+root          13       2  0 Mar28 ?        00:00:00 [rcu_tasks_trace_kthread]
+root          14       2  0 Mar28 ?        00:00:06 [ksoftirqd/0]
+root          15       2  0 Mar28 ?        00:00:10 [rcu_preempt]
+root          16       2  0 Mar28 ?        00:00:01 [migration/0]
+root          17       2  0 Mar28 ?        00:00:00 [idle_inject/0]
+root          19       2  0 Mar28 ?        00:00:00 [cpuhp/0]
+root          20       2  0 Mar28 ?        00:00:00 [kdevtmpfs]
+root          21       2  0 Mar28 ?        00:00:00 [inet_frag_wq]
+root          22       2  0 Mar28 ?        00:00:00 [kauditd]
+root          23       2  0 Mar28 ?        00:00:00 [khungtaskd]
+root          25       2  0 Mar28 ?        00:00:00 [oom_reaper]
+root          26       2  0 Mar28 ?        00:00:00 [writeback]
+root          28       2  0 Mar28 ?        00:00:07 [kcompactd0]
+root          29       2  0 Mar28 ?        00:00:00 [ksmd]
+root          30       2  0 Mar28 ?        00:00:00 [khugepaged]
+root          31       2  0 Mar28 ?        00:00:00 [kintegrityd]
+root          32       2  0 Mar28 ?        00:00:00 [kblockd]
+root          33       2  0 Mar28 ?        00:00:00 [blkcg_punt_bio]
+root          34       2  0 Mar28 ?        00:00:00 [tpm_dev_wq]
+root          35       2  0 Mar28 ?        00:00:00 [ata_sff]
+root          36       2  0 Mar28 ?        00:00:00 [md]
+root          37       2  0 Mar28 ?        00:00:00 [edac-poller]
+root          38       2  0 Mar28 ?        00:00:00 [devfreq_wq]
+root          39       2  0 Mar28 ?        00:00:00 [watchdogd]
+root          40       2  0 Mar28 ?        00:00:03 [kswapd0]
+root          41       2  0 Mar28 ?        00:00:00 [ecryptfs-kthread]
+root          47       2  0 Mar28 ?        00:00:00 [kthrotld]
+root          51       2  0 Mar28 ?        00:00:00 [acpi_thermal_pm]
+root          52       2  0 Mar28 ?        00:00:00 [xenbus_probe]
+root          53       2  0 Mar28 ?        00:00:00 [scsi_eh_0]
+root          54       2  0 Mar28 ?        00:00:00 [scsi_tmf_0]
+root          55       2  0 Mar28 ?        00:00:00 [scsi_eh_1]
+root          56       2  0 Mar28 ?        00:00:00 [scsi_tmf_1]
+root          57       2  0 Mar28 ?        00:00:00 [vfio-irqfd-clea]
+root          59       2  0 Mar28 ?        00:00:00 [mld]
+root          60       2  0 Mar28 ?        00:00:00 [ipv6_addrconf]
+root          65       2  0 Mar28 ?        00:00:00 [kstrp]
+root          71       2  0 Mar28 ?        00:00:00 [zswap-shrink]
+root          72       2  0 Mar28 ?        00:00:00 [kworker/u3:0]
+root         118       2  0 Mar28 ?        00:00:00 [charger_manager]
+root         152       2  0 Mar28 ?        00:00:00 [scsi_eh_2]
+root         153       2  0 Mar28 ?        00:00:00 [scsi_tmf_2]
+root         154       2  0 Mar28 ?        00:00:00 [cryptd]
+root         220       2  0 Mar28 ?        00:00:00 [raid5wq]
+root         263       2  0 Mar28 ?        00:00:08 [jbd2/vda1-8]
+root         264       2  0 Mar28 ?        00:00:00 [ext4-rsv-conver]
+root         364       2  0 Mar28 ?        00:00:00 [kaluad]
+root         366       2  0 Mar28 ?        00:00:00 [kmpath_rdacd]
+root         369       2  0 Mar28 ?        00:00:00 [kmpathd]
+root         370       2  0 Mar28 ?        00:00:00 [kmpath_handlerd]
+root         742       1  0 Mar28 ttyS0    00:00:00 /sbin/agetty -o -p -- \u --keep-baud 115200,5root         750       1  0 Mar28 tty1     00:00:00 /sbin/agetty -o -p -- \u --noclear - linux
+root        1657       1  0 Mar28 ?        00:00:00 /opt/digitalocean/bin/droplet-agent
+root        9345       2  0 06:24 ?        00:00:00 [kworker/0:0-cgroup_destroy]
+root       13579       1  0 07:01 ?        00:00:00 /lib/systemd/systemd-udevd
+systemd+   13887       1  0 07:02 ?        00:00:00 /lib/systemd/systemd-networkd
+root       13893       1  0 07:02 ?        00:00:48 /lib/systemd/systemd-journald
+root       14003       1  0 07:02 ?        00:00:05 /sbin/multipathd -d -s
+systemd+   18047       1  0 07:02 ?        00:00:00 /lib/systemd/systemd-timesyncd
+systemd+   18240       1  0 07:02 ?        00:00:00 /lib/systemd/systemd-resolved
+root       18728       1  0 07:08 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-10root       18852       1  0 07:08 ?        00:00:06 /usr/lib/snapd/snapd
+syslog     19040       1  0 07:08 ?        00:00:09 /usr/sbin/rsyslogd -n -iNONE
+root       24112       1  0 07:11 ?        00:00:00 /usr/sbin/cron -f -P
+postgres   26245       1  0 07:15 ?        00:00:02 /usr/lib/postgresql/14/bin/postgres -D /var/lpostgres   26247   26245  0 07:15 ?        00:00:00 postgres: 14/main: checkpointer
+postgres   26248   26245  0 07:15 ?        00:00:00 postgres: 14/main: background writer
+postgres   26249   26245  0 07:15 ?        00:00:00 postgres: 14/main: walwriter
+postgres   26250   26245  0 07:15 ?        00:00:01 postgres: 14/main: autovacuum launcher
+postgres   26251   26245  0 07:15 ?        00:00:01 postgres: 14/main: stats collector
+postgres   26252   26245  0 07:15 ?        00:00:00 postgres: 14/main: logical replication launchroot       26508       1  0 07:19 ?        00:02:18 /usr/bin/python3 /usr/bin/supervisord -n -c /bitsquad   32852       1  0 12:23 ?        00:00:07 /home/bitsquad/BitAttend/env/bin/python /homebitsquad   47530   32852  0 19:16 ?        00:00:00 /home/bitsquad/BitAttend/env/bin/python /homemessage+   49334       1  0 19:27 ?        00:00:00 @dbus-daemon --system --address=systemd: --noroot       49375       1  0 19:27 ?        00:00:00 /usr/libexec/packagekitd
+root       49376       1  0 19:27 ?        00:00:00 /usr/libexec/polkitd --no-debug
+root       49384       1  0 19:27 ?        00:00:00 /lib/systemd/systemd-logind
+root       52741       2  0 20:45 ?        00:00:00 [kworker/u2:1-events_unbound]
+root       52779   18728  0 20:46 ?        00:00:00 sshd: root@pts/0
+root       52784       1  0 20:46 ?        00:00:00 /lib/systemd/systemd --user
+root       52785   52784  0 20:46 ?        00:00:00 (sd-pam)
+root       52865   52779  0 20:46 pts/0    00:00:00 -bash
+root       53031       2  0 20:50 ?        00:00:00 [kworker/u2:2-events_unbound]
+root       53160   18728  0 20:54 ?        00:00:00 sshd: bitsquad [priv]
+bitsquad   53167       1  0 20:54 ?        00:00:00 /lib/systemd/systemd --user
+bitsquad   53168   53167  0 20:54 ?        00:00:00 (sd-pam)
+bitsquad   53225   53160  0 20:54 ?        00:00:00 sshd: bitsquad@pts/1
+bitsquad   53226   53225  0 20:54 pts/1    00:00:00 -bash
+root       53257       2  0 20:54 ?        00:00:00 [kworker/0:1-events]
+root       53310       2  0 20:56 ?        00:00:00 [kworker/u2:0-events_power_efficient]
+bitsquad   54149   53226  0 21:06 pts/1    00:00:00 ps -ef
+(env) bitsquad@bitsquadattend:~/BitAttend/attendance$ htop
+
+
+(env) bitsquad@bitsquadattend:~/BitAttend/attendance$ ls
+__init__.py  __pycache__  asgi.py  settings.py  static  urls.py  wsgi.py
+(env) bitsquad@bitsquadattend:~/BitAttend/attendance$ cd ../
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.InsufficientPrivilege: permission denied for table django_migrations
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/commands/runserver.py", line 137, in inner_run
+    self.check_migrations()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/base.py", line 564, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/loader.py", line 235, in build_graph
+    self.applied_migrations = recorder.applied_migrations()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/recorder.py", line 82, in applied_migrations
+    return {
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: permission denied for table django_migrations
+
+exit^C^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo -u postgres psql
+could not change directory to "/home/bitsquad/BitAttend": Permission denied
+psql (14.7 (Ubuntu 14.7-0ubuntu0.22.10.1))
+Type "help" for help.
+
+postgres=# \q
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo python manage.py runserver 0.0.0.0:8000
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 11, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 22, in <module>
+    main()
+  File "/home/bitsquad/BitAttend/manage.py", line 13, in main
+    raise ImportError(
+ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+(env) bitsquad@bitsquadattend:~/BitAttend$ pip install django
+Requirement already satisfied: django in ./env/lib/python3.10/site-packages (4.1.5)
+Requirement already satisfied: asgiref<4,>=3.5.2 in ./env/lib/python3.10/site-packages (from django) (3.6.0)
+Requirement already satisfied: sqlparse>=0.2.2 in ./env/lib/python3.10/site-packages (from django) (0.4.3)
+(env) bitsquad@bitsquadattend:~/BitAttend$ pip install django
+Requirement already satisfied: django in ./env/lib/python3.10/site-packages (4.1.5)
+Requirement already satisfied: sqlparse>=0.2.2 in ./env/lib/python3.10/site-packages (from django) (0.4.3)
+Requirement already satisfied: asgiref<4,>=3.5.2 in ./env/lib/python3.10/site-packages (from django) (3.6.0)
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo python manage.py runserver 0.0.0.0:8000
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 11, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 22, in <module>
+    main()
+  File "/home/bitsquad/BitAttend/manage.py", line 13, in main
+    raise ImportError(
+ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo python3 manage.py runserver 0.0.0.0:8000
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 11, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 22, in <module>
+    main()
+  File "/home/bitsquad/BitAttend/manage.py", line 13, in main
+    raise ImportError(
+ImportError: Couldn't import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:800010
+^CTraceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 22, in <module>
+    main()
+  File "/home/bitsquad/BitAttend/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/__init__.py", line 446, in execute_from_command_line
+    utility.execute()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/__init__.py", line 398, in execute
+    autoreload.check_errors(django.setup)()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/__init__.py", line 24, in setup
+    apps.populate(settings.INSTALLED_APPS)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/apps/registry.py", line 116, in populate
+    app_config.import_models()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/apps/config.py", line 269, in import_models
+    self.models_module = import_module(models_module_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/contrib/auth/models.py", line 3, in <module>
+    from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/contrib/auth/base_user.py", line 49, in <module>
+    class AbstractBaseUser(models.Model):
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/base.py", line 141, in __new__
+    new_class.add_to_class("_meta", Options(meta, app_label))
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/base.py", line 369, in add_to_class
+    value.contribute_to_class(cls, name)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/options.py", line 231, in contribute_to_class
+    self.db_table, connection.ops.max_name_length()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/connection.py", line 15, in __getattr__
+    return getattr(self._connections[self._alias], item)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/connection.py", line 62, in __getitem__
+    conn = self.create_connection(alias)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/utils.py", line 193, in create_connection
+    backend = load_backend(db["ENGINE"])
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/utils.py", line 113, in load_backend
+    return import_module("%s.base" % backend_name)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/postgresql/base.py", line 49, in <module>
+    from .introspection import DatabaseIntrospection  # NOQA
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/postgresql/introspection.py", line 3, in <module>
+    from django.db.backends.base.introspection import BaseDatabaseIntrospection
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+KeyboardInterrupt
+^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:800
+^CTraceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 22, in <module>
+    main()
+  File "/home/bitsquad/BitAttend/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/__init__.py", line 446, in execute_from_command_line
+    utility.execute()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/__init__.py", line 398, in execute
+    autoreload.check_errors(django.setup)()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/log.py", line 72, in configure_logging
+    logging.config.dictConfig(DEFAULT_LOGGING)
+  File "/usr/lib/python3.10/logging/config.py", line 811, in dictConfig
+    dictConfigClass(config).configure()
+  File "/usr/lib/python3.10/logging/config.py", line 565, in configure
+    handler = self.configure_handler(handlers[name])
+  File "/usr/lib/python3.10/logging/config.py", line 746, in configure_handler
+    result = factory(**kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/log.py", line 90, in __init__
+    self.reporter_class = import_string(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/module_loading.py", line 30, in import_string
+    return cached_import(module_path, class_name)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/module_loading.py", line 15, in cached_import
+    module = import_module(module_path)
+  File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 992, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/views/__init__.py", line 1, in <module>
+    from django.views.generic.base import View
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/views/generic/__init__.py", line 1, in <module>
+    from django.views.generic.base import RedirectView, TemplateView, View
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1012, in get_code
+  File "<frozen importlib._bootstrap_external>", line 672, in _compile_bytecode
+KeyboardInterrupt
+^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.InsufficientPrivilege: permission denied for table django_migrations
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/commands/runserver.py", line 137, in inner_run
+    self.check_migrations()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/base.py", line 564, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/loader.py", line 235, in build_graph
+    self.applied_migrations = recorder.applied_migrations()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/recorder.py", line 82, in applied_migrations
+    return {
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: permission denied for table django_migrations
+
+^C^C^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo -u postgres psql1^?
+sudo: psql1: command not found
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo -u postgres psql
+could not change directory to "/home/bitsquad/BitAttend": Permission denied
+psql (14.7 (Ubuntu 14.7-0ubuntu0.22.10.1))
+Type "help" for help.
+
+postgres=# \q
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo chmod -R 777 /home/bitsquad/
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo -u postgres psql
+psql (14.7 (Ubuntu 14.7-0ubuntu0.22.10.1))
+Type "help" for help.
+
+postgres=# \q
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.InsufficientPrivilege: permission denied for table django_migrations
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/commands/runserver.py", line 137, in inner_run
+    self.check_migrations()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/base.py", line 564, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/loader.py", line 235, in build_graph
+    self.applied_migrations = recorder.applied_migrations()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/recorder.py", line 82, in applied_migrations
+    return {
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: permission denied for table django_migrations
+
+^C^C(env) bitsquad@bitsquadattend:~/BitAttend$ sudo -u postgres psql
+psql (14.7 (Ubuntu 14.7-0ubuntu0.22.10.1))
+Type "help" for help.
+
+postgres=# GRANT ALL PRIVILEGES ON DATABASE bitattend TO bitsquaduser;
+GRANT
+postgres=# \q
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+Exception in thread django-main-thread:
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.InsufficientPrivilege: permission denied for table django_migrations
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/autoreload.py", line 64, in wrapper
+    fn(*args, **kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/commands/runserver.py", line 137, in inner_run
+    self.check_migrations()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/base.py", line 564, in check_migrations
+    executor = MigrationExecutor(connections[DEFAULT_DB_ALIAS])
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/executor.py", line 18, in __init__
+    self.loader = MigrationLoader(self.connection)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/loader.py", line 58, in __init__
+    self.build_graph()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/loader.py", line 235, in build_graph
+    self.applied_migrations = recorder.applied_migrations()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/recorder.py", line 82, in applied_migrations
+    return {
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: permission denied for table django_migrations
+
+^C^C^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py makemigrations
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.InsufficientPrivilege: permission denied for table django_migrations
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/manage.py", line 22, in <module>
+    main()
+  File "/home/bitsquad/BitAttend/manage.py", line 18, in main
+    execute_from_command_line(sys.argv)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/__init__.py", line 446, in execute_from_command_line
+    utility.execute()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/__init__.py", line 440, in execute
+    self.fetch_command(subcommand).run_from_argv(self.argv)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/base.py", line 402, in run_from_argv
+    self.execute(*args, **cmd_options)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/base.py", line 448, in execute
+    output = self.handle(*args, **options)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/base.py", line 96, in wrapped
+    res = handle_func(*args, **kwargs)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/management/commands/makemigrations.py", line 141, in handle
+    loader.check_consistent_history(connection)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/loader.py", line 313, in check_consistent_history
+    applied = recorder.applied_migrations()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/migrations/recorder.py", line 82, in applied_migrations
+    return {
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 394, in __iter__
+    self._fetch_all()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 1867, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/query.py", line 87, in __iter__
+    results = compiler.execute_sql(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1398, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 103, in execute
+    return super().execute(sql, params)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: permission denied for table django_migrations
+
+(env) bitsquad@bitsquadattend:~/BitAttend$
+psql bitattend -c "GRANT ALL ON ALL TABLES IN SCHEMA public to bitsquaduser;"
+psql bitattend -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to bitsquaduser;"
+psql bitattend -c "GRANT ALL ON ALL FUNCTIONS IN SCHEMA public to bitsquaduser;
+GRANT
+GRANT
+>
+psql bitattend -c "GRANT ALL ON ALL TABLES IN SCHEMA public to bitsquaduser;"
+psql bitattend -c "GRANT ALL ON ALL SEQUENCES IN SCHEMA public to bitsquaduser;"
+psql bitattend -c "GRANT ALL ON ALL FUNCTIONS IN SCHEMA public to bitsquaduser;
+psql: warning: extra command-line argument "ON" ignored
+psql: warning: extra command-line argument "ALL" ignored
+psql: warning: extra command-line argument "TABLES" ignored
+psql: warning: extra command-line argument "IN" ignored
+psql: warning: extra command-line argument "SCHEMA" ignored
+psql: warning: extra command-line argument "public" ignored
+psql: warning: extra command-line argument "to" ignored
+psql: warning: extra command-line argument "bitsquaduser" ignored
+psql: error: connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  Peer authentication failed for user "ALL"
+
+psql bitattend -c GRANT: command not found
+
+psql bitattend -c GRANT: command not found
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 30, 2023 - 02:42:36
+Django version 4.1.5, using settings 'attendance.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) bitsquad@bitsquadattend:~/BitAttend$ ps | grep gunicorn
+(env) bitsquad@bitsquadattend:~/BitAttend$ ps -ef | grep gunicorn
+bitsquad   32852       1  0 12:23 ?        00:00:07 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn --bind 0.0.0.0:8000 attendance.wsgi
+bitsquad   47530   32852  0 19:16 ?        00:00:00 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn --bind 0.0.0.0:8000 attendance.wsgi
+bitsquad   54481   26508  1 21:13 ?        00:00:00 [gunicorn_start] <defunct>
+bitsquad   54483   53226  0 21:13 pts/1    00:00:00 grep --color=auto gunicorn
+(env) bitsquad@bitsquadattend:~/BitAttend$ kill -9 54481
+-bash: kill: (54481) - No such process
+(env) bitsquad@bitsquadattend:~/BitAttend$ kill -9 26508
+-bash: kill: (26508) - Operation not permitted
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo kill -9 26508
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 30, 2023 - 02:44:09
+Django version 4.1.5, using settings 'attendance.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 30, 2023 - 02:44:36
+Django version 4.1.5, using settings 'attendance.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Error: That port is already in use.
+(env) bitsquad@bitsquadattend:~/BitAttend$ ps | grep gunicorn
+(env) bitsquad@bitsquadattend:~/BitAttend$ ps -ef | grep gunicorn
+bitsquad   32852       1  0 12:23 ?        00:00:07 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn --bind 0.0.0.0:8000 attendance.wsgi
+bitsquad   47530   32852  0 19:16 ?        00:00:00 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn --bind 0.0.0.0:8000 attendance.wsgi
+bitsquad   54530   53226  0 21:14 pts/1    00:00:00 grep --color=auto gunicorn
+(env) bitsquad@bitsquadattend:~/BitAttend$ kill -9 26508
+-bash: kill: (26508) - No such process
+(env) bitsquad@bitsquadattend:~/BitAttend$ kill -9 32852
+(env) bitsquad@bitsquadattend:~/BitAttend$ kill -9 53226
+Connection to 161.35.20.94 closed.
+PS C:\Users\iitia> ssh bitsquad@161.35.20.941
+ssh: Could not resolve hostname 161.35.20.941: No such host is known.
+PS C:\Users\iitia> ssh bitsquad@161.35.20.94
+bitsquad@161.35.20.94's password:
+Welcome to Ubuntu 22.10 (GNU/Linux 5.19.0-23-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Mar 29 21:15:44 UTC 2023
+
+  System load:  0.08349609375      Users logged in:       1
+  Usage of /:   13.5% of 24.06GB   IPv4 address for eth0: 161.35.20.94
+  Memory usage: 29%                IPv4 address for eth0: 10.19.0.5
+  Swap usage:   0%                 IPv4 address for eth1: 10.114.0.2
+  Processes:    103
+
+  => There is 1 zombie process.
+
+8 updates can be applied immediately.
+8 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+
+*** System restart required ***
+Last login: Wed Mar 29 20:54:24 2023 from 103.81.182.104
+bitsquad@bitsquadattend:~$ cd BitAttend/
+bitsquad@bitsquadattend:~/BitAttend$ ls
+attendance  bin  bitattend  env  lib  logs  manage.py  pyvenv.cfg  requirements.txt  run
+bitsquad@bitsquadattend:~/BitAttend$ source env/bin/activate
+(env) bitsquad@bitsquadattend:~/BitAttend$ ls
+attendance  bin  bitattend  env  lib  logs  manage.py  pyvenv.cfg  requirements.txt  run
+(env) bitsquad@bitsquadattend:~/BitAttend$ ls1^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ python manage.py runserver 0.0.0.0:8000
+Watching for file changes with StatReloader
+Performing system checks...
+
+System check identified no issues (0 silenced).
+March 30, 2023 - 02:46:30
+Django version 4.1.5, using settings 'attendance.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+^C^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo nano /etc/systemd/system/gunicorn.socket
+[sudo] password for bitsquad:
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo nano /etc/systemd/system/gunicorn.service
+(env) bitsquad@bitsquadattend:~/BitAttend$ pwd
+/home/bitsquad/BitAttend
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo nano /etc/systemd/system/gunicorn.service
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl start gunicorn.socket
+sudo systemctl enable gunicorn.socket
+Created symlink /etc/systemd/system/sockets.target.wants/gunicorn.socket → /etc/systemd/system/gunicorn.socket.
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl status gunicorn.socket
+● gunicorn.socket - gunicorn socket
+     Loaded: loaded (/etc/systemd/system/gunicorn.socket; enabled; preset: enabled)
+     Active: active (listening) since Wed 2023-03-29 21:19:10 UTC; 6s ago
+      Until: Wed 2023-03-29 21:19:10 UTC; 6s ago
+   Triggers: ● gunicorn.service
+     Listen: /run/gunicorn.sock (Stream)
+     CGroup: /system.slice/gunicorn.socket
+
+Mar 29 21:19:10 bitsquadattend systemd[1]: Listening on gunicorn socket.
+(env) bitsquad@bitsquadattend:~/BitAttend$ file /run/gunicorn.sock
+/run/gunicorn.sock: socket
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo journalctl -u gunicorn.socket
+Mar 29 19:53:44 bitsquadattend systemd[1]: gunicorn.socket: Socket service gunicorn.service not loaded,>
+Mar 29 19:53:44 bitsquadattend systemd[1]: Failed to listen on gunicorn socket.
+Mar 29 21:19:10 bitsquadattend systemd[1]: Listening on gunicorn socket.
+:0
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl enable gunicorn.service
+Created symlink /etc/systemd/system/multi-user.target.wants/gunicorn.service → /etc/systemd/system/gunicorn.service.
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo nano /etc/systemd/system/gunicorn.service
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl enable gunicorn.service
+(env) bitsquad@bitsquadattend:~/BitAttend$ file /run/gunicorn.sock
+/run/gunicorn.sock: socket
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo journalctl -u gunicorn.socket
+Mar 29 19:53:44 bitsquadattend systemd[1]: gunicorn.socket: Socket service gunicorn.service not loaded,>
+Mar 29 19:53:44 bitsquadattend systemd[1]: Failed to listen on gunicorn socket.
+Mar 29 21:19:10 bitsquadattend systemd[1]: Listening on gunicorn socket.
+lines 1-3/3 (END)
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo journalctl -u gunicorn.socket
+Mar 29 19:53:44 bitsquadattend systemd[1]: gunicorn.socket: Socket service gunicorn.service not loaded,>
+Mar 29 19:53:44 bitsquadattend systemd[1]: Failed to listen on gunicorn socket.
+Mar 29 21:19:10 bitsquadattend systemd[1]: Listening on gunicorn socket.
+lines 1-3/3 (END)
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl start gunicorn
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl enable gunicorn
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl status gunicorn
+● gunicorn.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2023-03-29 21:23:19 UTC; 11s ago
+TriggeredBy: ● gunicorn.socket
+   Main PID: 55066 (gunicorn)
+      Tasks: 4 (limit: 1116)
+     Memory: 93.8M
+        CPU: 1.624s
+     CGroup: /system.slice/gunicorn.service
+             ├─55066 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+             ├─55067 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+             ├─55068 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+             └─55069 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+
+Mar 29 21:23:19 bitsquadattend systemd[1]: Started gunicorn daemon.
+Mar 29 21:23:20 bitsquadattend gunicorn[55066]: [2023-03-29 21:23:20 +0000] [55066] [INFO] Starting gun>
+Mar 29 21:23:20 bitsquadattend gunicorn[55066]: [2023-03-29 21:23:20 +0000] [55066] [INFO] Listening at>
+Mar 29 21:23:20 bitsquadattend gunicorn[55066]: [2023-03-29 21:23:20 +0000] [55066] [INFO] Using worker>
+Mar 29 21:23:20 bitsquadattend gunicorn[55067]: [2023-03-29 21:23:20 +0000] [55067] [INFO] Booting work>
+Mar 29 21:23:20 bitsquadattend gunicorn[55068]: [2023-03-29 21:23:20 +0000] [55068] [INFO] Booting work>
+Mar 29 21:23:20 bitsquadattend gunicorn[55069]: [2023-03-29 21:23:20 +0000] [55069] [INFO] Booting work>
+
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo journalctl -u gunicorn.socket
+Mar 29 19:53:44 bitsquadattend systemd[1]: gunicorn.socket: Socket service gunicorn.service not loaded,>
+Mar 29 19:53:44 bitsquadattend systemd[1]: Failed to listen on gunicorn socket.
+Mar 29 21:19:10 bitsquadattend systemd[1]: Listening on gunicorn socket.
+lines 1-3/3 (END)
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo journalctl -u gunicorn.socket
+Mar 29 19:53:44 bitsquadattend systemd[1]: gunicorn.socket: Socket service gunicorn.service not loaded,>
+Mar 29 19:53:44 bitsquadattend systemd[1]: Failed to listen on gunicorn socket.
+Mar 29 21:19:10 bitsquadattend systemd[1]: Listening on gunicorn socket.
+lines 1-3/3 (END)
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl status gunicorn
+● gunicorn.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2023-03-29 21:23:19 UTC; 51s ago
+TriggeredBy: ● gunicorn.socket
+   Main PID: 55066 (gunicorn)
+      Tasks: 4 (limit: 1116)
+     Memory: 93.8M
+        CPU: 1.635s
+     CGroup: /system.slice/gunicorn.service
+             ├─55066 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+             ├─55067 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+             ├─55068 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+             └─55069 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+
+Mar 29 21:23:19 bitsquadattend systemd[1]: Started gunicorn daemon.
+Mar 29 21:23:20 bitsquadattend gunicorn[55066]: [2023-03-29 21:23:20 +0000] [55066] [INFO] Starting gun>
+Mar 29 21:23:20 bitsquadattend gunicorn[55066]: [2023-03-29 21:23:20 +0000] [55066] [INFO] Listening at>
+Mar 29 21:23:20 bitsquadattend gunicorn[55066]: [2023-03-29 21:23:20 +0000] [55066] [INFO] Using worker>
+Mar 29 21:23:20 bitsquadattend gunicorn[55067]: [2023-03-29 21:23:20 +0000] [55067] [INFO] Booting work>
+Mar 29 21:23:20 bitsquadattend gunicorn[55068]: [2023-03-29 21:23:20 +0000] [55068] [INFO] Booting work>
+Mar 29 21:23:20 bitsquadattend gunicorn[55069]: [2023-03-29 21:23:20 +0000] [55069] [INFO] Booting work>
+lines 1-21/21 (END)
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ curl --unix-socket /run/gunicorn.sock localhost
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="robots" content="NONE,NOARCHIVE">
+  <title>DisallowedHost
+          at /</title>
+  <style type="text/css">
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; background-color:#fff; color:#000; }
+    body>div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; }
+    h2 { margin-bottom:.8em; }
+    h3 { margin:1em 0 .5em 0; }
+    h4 { margin:0 0 .5em 0; font-weight: normal; }
+    code, pre { font-size: 100%; white-space: pre-wrap; word-break: break-word; }
+    summary { cursor: pointer; }
+    table { border:1px solid #ccc; border-collapse: collapse; width:100%; background:white; }
+    tbody td, tbody th { vertical-align:top; padding:2px 3px; }
+    thead th {
+      padding:1px 6px 1px 3px; background:#fefefe; text-align:left;
+      font-weight:normal; font-size:11px; border:1px solid #ddd;
+    }
+    tbody th { width:12em; text-align:right; color:#666; padding-right:.5em; }
+    table.vars { margin:5px 10px 2px 40px; width: auto; }
+    table.vars td, table.req td { font-family:monospace; }
+    table td.code { width:100%; }
+    table td.code pre { overflow:hidden; }
+    table.source th { color:#666; }
+    table.source td { font-family:monospace; white-space:pre; border-bottom:1px solid #eee; }
+    ul.traceback { list-style-type:none; color: #222; }
+    ul.traceback li.cause { word-break: break-word; }
+    ul.traceback li.frame { padding-bottom:1em; color:#4f4f4f; }
+    ul.traceback li.user { background-color:#e0e0e0; color:#000 }
+    div.context { padding:10px 0; overflow:hidden; }
+    div.context ol { padding-left:30px; margin:0 10px; list-style-position: inside; }
+    div.context ol li { font-family:monospace; white-space:pre; color:#777; cursor:pointer; padding-left: 2px; }
+    div.context ol li pre { display:inline; }
+    div.context ol.context-line li { color:#464646; background-color:#dfdfdf; padding: 3px 2px; }
+    div.context ol.context-line li span { position:absolute; right:32px; }
+    .user div.context ol.context-line li { background-color:#bbb; color:#000; }
+    .user div.context ol li { color:#666; }
+    div.commands, summary.commands { margin-left: 40px; }
+    div.commands a, summary.commands { color:#555; text-decoration:none; }
+    .user div.commands a { color: black; }
+    #summary { background: #ffc; }
+    #summary h2 { font-weight: normal; color: #666; }
+    #explanation { background:#eee; }
+    #template, #template-not-exist { background:#f6f6f6; }
+    #template-not-exist ul { margin: 0 0 10px 20px; }
+    #template-not-exist .postmortem-section { margin-bottom: 3px; }
+    #unicode-hint { background:#eee; }
+    #traceback { background:#eee; }
+    #requestinfo { background:#f6f6f6; padding-left:120px; }
+    #summary table { border:none; background:transparent; }
+    #requestinfo h2, #requestinfo h3 { position:relative; margin-left:-100px; }
+    #requestinfo h3 { margin-bottom:-1em; }
+    .error { background: #ffc; }
+    .specific { color:#cc3300; font-weight:bold; }
+    h2 span.commands { font-size:.7em; font-weight:normal; }
+    span.commands a:link {color:#5E5694;}
+    pre.exception_value { font-family: sans-serif; color: #575757; font-size: 1.5em; margin: 10px 0 10px 0; }
+    .append-bottom { margin-bottom: 10px; }
+    .fname { user-select: all; }
+  </style>
+
+  <script>
+    function hideAll(elems) {
+      for (var e = 0; e < elems.length; e++) {
+        elems[e].style.display = 'none';
+      }
+    }
+    window.onload = function() {
+      hideAll(document.querySelectorAll('ol.pre-context'));
+      hideAll(document.querySelectorAll('ol.post-context'));
+      hideAll(document.querySelectorAll('div.pastebin'));
+    }
+    function toggle() {
+      for (var i = 0; i < arguments.length; i++) {
+        var e = document.getElementById(arguments[i]);
+        if (e) {
+          e.style.display = e.style.display == 'none' ? 'block': 'none';
+        }
+      }
+      return false;
+    }
+    function switchPastebinFriendly(link) {
+      s1 = "Switch to copy-and-paste view";
+      s2 = "Switch back to interactive view";
+      link.textContent = link.textContent.trim() == s1 ? s2: s1;
+      toggle('browserTraceback', 'pastebinTraceback');
+      return false;
+    }
+  </script>
+
+</head>
+<body>
+<div id="summary">
+  <h1>DisallowedHost
+       at /</h1>
+  <pre class="exception_value">Invalid HTTP_HOST header: &#x27;localhost&#x27;. You may need to add &#x27;localhost&#x27; to ALLOWED_HOSTS.</pre>
+  <table class="meta">
+
+    <tr>
+      <th>Request Method:</th>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <th>Request URL:</th>
+      <td>http://localhost/</td>
+    </tr>
+
+    <tr>
+      <th>Django Version:</th>
+      <td>4.1.5</td>
+    </tr>
+
+    <tr>
+      <th>Exception Type:</th>
+      <td>DisallowedHost</td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Value:</th>
+      <td><pre>Invalid HTTP_HOST header: &#x27;localhost&#x27;. You may need to add &#x27;localhost&#x27; to ALLOWED_HOSTS.</pre></td>
+    </tr>
+
+
+    <tr>
+      <th>Exception Location:</th>
+      <td><span class="fname">/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/http/request.py</span>, line 148, in get_host</td>
+    </tr>
+
+
+    <tr>
+      <th>Raised during:</th>
+      <td>bitattend.views.home</td>
+    </tr>
+
+    <tr>
+      <th>Python Executable:</th>
+      <td>/home/bitsquad/BitAttend/env/bin/python</td>
+    </tr>
+    <tr>
+      <th>Python Version:</th>
+      <td>3.10.7</td>
+    </tr>
+    <tr>
+      <th>Python Path:</th>
+      <td><pre>[&#x27;/home/bitsquad/BitAttend&#x27;,
+ &#x27;/home/bitsquad/BitAttend/env/bin&#x27;,
+ &#x27;/usr/lib/python310.zip&#x27;,
+ &#x27;/usr/lib/python3.10&#x27;,
+ &#x27;/usr/lib/python3.10/lib-dynload&#x27;,
+ &#x27;/home/bitsquad/BitAttend/env/lib/python3.10/site-packages&#x27;]</pre></td>
+    </tr>
+    <tr>
+      <th>Server time:</th>
+      <td>Thu, 30 Mar 2023 02:54:21 +0530</td>
+    </tr>
+  </table>
+</div>
+
+
+
+
+<div id="traceback">
+  <h2>Traceback <span class="commands"><a href="#" onclick="return switchPastebinFriendly(this);">
+    Switch to copy-and-paste view</a></span>
+  </h2>
+  <div id="browserTraceback">
+    <ul class="traceback">
+
+
+        <li class="frame django">
+
+            <code class="fname">/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/handlers/exception.py</code>, line 55, in inner
+
+
+
+            <div class="context" id="c139988024140800">
+
+                <ol start="48" class="pre-context" id="pre139988024140800">
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre></pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>        return inner</pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>    else:</pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre></pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>        @wraps(get_response)</pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>        def inner(request):</pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>            try:</pre></li>
+
+                </ol>
+
+              <ol start="55" class="context-line">
+                <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>                response = get_response(request)</pre> <span>…</span></li>
+              </ol>
+
+                <ol start='56' class="post-context" id="post139988024140800">
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>            except Exception as exc:</pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>
+ response = response_for_exception(request, exc)</pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>            return response</pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre></pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre>        return inner</pre></li>
+
+                  <li onclick="toggle('pre139988024140800', 'post139988024140800')"><pre></pre></li>
+
+              </ol>
+
+            </div>
+
+
+
+
+              <details>
+                <summary class="commands">Local vars</summary>
+
+            <table class="vars" id="v139988024140800">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <td>exc</td>
+                    <td class="code"><pre>DisallowedHost(&quot;Invalid HTTP_HOST header: &#x27;localhost&#x27;. You may need to add &#x27;localhost&#x27; to ALLOWED_HOSTS.&quot;)</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>get_response</td>
+                    <td class="code"><pre>&lt;CommonMiddleware get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET &#x27;/&#x27;&gt;</pre></td>
+                  </tr>
+
+              </tbody>
+            </table>
+            </details>
+
+        </li>
+
+
+        <li class="frame django">
+
+            <code class="fname">/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/deprecation.py</code>, line 135, in __call__
+
+
+
+            <div class="context" id="c139988024137792">
+
+                <ol start="128" class="pre-context" id="pre139988024137792">
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre></pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>    def __call__(self, request):</pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>        # Exit out to async mode, if needed</pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>        if self._is_coroutine:</pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>            return self.__acall__(request)</pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>        response = None</pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>        if hasattr(self, &quot;process_request&quot;):</pre></li>
+
+                </ol>
+
+              <ol start="135" class="context-line">
+                <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>            response = self.process_request(request)</pre> <span>…</span></li>
+              </ol>
+
+                <ol start='136' class="post-context" id="post139988024137792">
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>        response = response or self.get_response(request)</pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>        if hasattr(self, &quot;process_response&quot;):</pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>            response = self.process_response(request, response)</pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>        return response</pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre></pre></li>
+
+                  <li onclick="toggle('pre139988024137792', 'post139988024137792')"><pre>    async def __acall__(self, request):</pre></li>
+
+              </ol>
+
+            </div>
+
+
+
+
+              <details>
+                <summary class="commands">Local vars</summary>
+
+            <table class="vars" id="v139988024137792">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET &#x27;/&#x27;&gt;</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>response</td>
+                    <td class="code"><pre>None</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;CommonMiddleware get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;</pre></td>
+                  </tr>
+
+              </tbody>
+            </table>
+            </details>
+
+        </li>
+
+
+        <li class="frame django">
+
+            <code class="fname">/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/middleware/common.py</code>, line 48, in process_request
+
+
+
+            <div class="context" id="c139988024137280">
+
+                <ol start="41" class="pre-context" id="pre139988024137280">
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>        user_agent = request.META.get(&quot;HTTP_USER_AGENT&quot;)</pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>        if user_agent is not None:</pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>            for user_agent_regex in settings.DISALLOWED_USER_AGENTS:</pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>
+ if user_agent_regex.search(user_agent):</pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>
+     raise PermissionDenied(&quot;Forbidden user agent&quot;)</pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre></pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>        # Check for a redirect based on settings.PREPEND_WWW</pre></li>
+
+                </ol>
+
+              <ol start="48" class="context-line">
+                <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>        host = request.get_host()</pre> <span>…</span></li>
+              </ol>
+
+                <ol start='49' class="post-context" id="post139988024137280">
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>        must_prepend = settings.PREPEND_WWW and host and not host.startswith(&quot;www.&quot;)</pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>        redirect_url = (&quot;%s://www.%s&quot; % (request.scheme, host)) if must_prepend else &quot;&quot;</pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre></pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>        # Check if a slash should be appended</pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>        if self.should_redirect_with_slash(request):</pre></li>
+
+                  <li onclick="toggle('pre139988024137280', 'post139988024137280')"><pre>            path = self.get_full_path_with_slash(request)</pre></li>
+
+              </ol>
+
+            </div>
+
+
+
+
+              <details>
+                <summary class="commands">Local vars</summary>
+
+            <table class="vars" id="v139988024137280">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <td>request</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET &#x27;/&#x27;&gt;</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;CommonMiddleware get_response=convert_exception_to_response.&lt;locals&gt;.inner&gt;</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>user_agent</td>
+                    <td class="code"><pre>&#x27;curl/7.85.0&#x27;</pre></td>
+                  </tr>
+
+              </tbody>
+            </table>
+            </details>
+
+        </li>
+
+
+        <li class="frame django">
+
+            <code class="fname">/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/http/request.py</code>, line 148, in get_host
+
+
+
+            <div class="context" id="c139988024137088">
+
+                <ol start="141" class="pre-context" id="pre139988024137088">
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>            msg = &quot;Invalid HTTP_HOST header: %r.&quot; % host</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>            if domain:</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>
+ msg += &quot; You may need to add %r to ALLOWED_HOSTS.&quot; % domain</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>            else:</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>
+ msg += (</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>
+     &quot; The domain name provided is not valid according to RFC 1034/1035.&quot;</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>
+ )</pre></li>
+
+                </ol>
+
+              <ol start="148" class="context-line">
+                <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>            raise DisallowedHost(msg)</pre> <span>…</span></li>
+              </ol>
+
+                <ol start='149' class="post-context" id="post139988024137088">
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre></pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>    def get_port(self):</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>        &quot;&quot;&quot;Return the port number for the request as a string.&quot;&quot;&quot;</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>        if settings.USE_X_FORWARDED_PORT and &quot;HTTP_X_FORWARDED_PORT&quot; in self.META:</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>            port = self.META[&quot;HTTP_X_FORWARDED_PORT&quot;]</pre></li>
+
+                  <li onclick="toggle('pre139988024137088', 'post139988024137088')"><pre>        else:</pre></li>
+
+              </ol>
+
+            </div>
+
+
+
+
+              <details>
+                <summary class="commands">Local vars</summary>
+
+            <table class="vars" id="v139988024137088">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <td>allowed_hosts</td>
+                    <td class="code"><pre>[&#x27;161.35.20.94&#x27;]</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>domain</td>
+                    <td class="code"><pre>&#x27;localhost&#x27;</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>host</td>
+                    <td class="code"><pre>&#x27;localhost&#x27;</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>msg</td>
+                    <td class="code"><pre>(&quot;Invalid HTTP_HOST header: &#x27;localhost&#x27;. You may need to add &#x27;localhost&#x27; to &quot;
+ &#x27;ALLOWED_HOSTS.&#x27;)</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>port</td>
+                    <td class="code"><pre>&#x27;&#x27;</pre></td>
+                  </tr>
+
+                  <tr>
+                    <td>self</td>
+                    <td class="code"><pre>&lt;WSGIRequest: GET &#x27;/&#x27;&gt;</pre></td>
+                  </tr>
+
+              </tbody>
+            </table>
+            </details>
+
+        </li>
+
+    </ul>
+  </div>
+
+  <form action="https://dpaste.com/" name="pasteform" id="pasteform" method="post">
+  <div id="pastebinTraceback" class="pastebin">
+    <input type="hidden" name="language" value="PythonConsole">
+    <input type="hidden" name="title"
+      value="DisallowedHost at /">
+    <input type="hidden" name="source" value="Django Dpaste Agent">
+    <input type="hidden" name="poster" value="Django">
+    <textarea name="content" id="traceback_area" cols="140" rows="25">
+Environment:
+
+
+Request Method: GET
+Request URL: http://localhost/
+
+Django Version: 4.1.5
+Python Version: 3.10.7
+Installed Applications:
+[&#x27;django.contrib.admin&#x27;,
+ &#x27;django.contrib.auth&#x27;,
+ &#x27;django.contrib.contenttypes&#x27;,
+ &#x27;django.contrib.sessions&#x27;,
+ &#x27;django.contrib.messages&#x27;,
+ &#x27;django.contrib.staticfiles&#x27;,
+ &#x27;bitattend&#x27;]
+Installed Middleware:
+[&#x27;django.middleware.security.SecurityMiddleware&#x27;,
+ &#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;,
+ &#x27;django.middleware.common.CommonMiddleware&#x27;,
+ &#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;,
+ &#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;,
+ &#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;,
+ &#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;]
+
+
+
+Traceback (most recent call last):
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/utils/deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/bitsquad/BitAttend/env/lib/python3.10/site-packages/django/http/request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+
+Exception Type: DisallowedHost at /
+Exception Value: Invalid HTTP_HOST header: &#x27;localhost&#x27;. You may need to add &#x27;localhost&#x27; to ALLOWED_HOSTS.
+</textarea>
+  <br><br>
+  <input type="submit" value="Share this traceback on a public website">
+  </div>
+</form>
+
+</div>
+
+
+<div id="requestinfo">
+  <h2>Request information</h2>
+
+
+
+    <h3 id="user-info">USER</h3>
+    <p>[unable to retrieve the current user]</p>
+
+
+  <h3 id="get-info">GET</h3>
+
+    <p>No GET data</p>
+
+
+  <h3 id="post-info">POST</h3>
+
+    <p>No POST data</p>
+
+  <h3 id="files-info">FILES</h3>
+
+    <p>No FILES data</p>
+
+
+
+  <h3 id="cookie-info">COOKIES</h3>
+
+    <p>No cookie data</p>
+
+
+  <h3 id="meta-info">META</h3>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Variable</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+          <td>HTTP_ACCEPT</td>
+          <td class="code"><pre>&#x27;*/*&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>HTTP_HOST</td>
+          <td class="code"><pre>&#x27;localhost&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>HTTP_USER_AGENT</td>
+          <td class="code"><pre>&#x27;curl/7.85.0&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>PATH_INFO</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>QUERY_STRING</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>RAW_URI</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>REMOTE_ADDR</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>REQUEST_METHOD</td>
+          <td class="code"><pre>&#x27;GET&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SCRIPT_NAME</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SERVER_NAME</td>
+          <td class="code"><pre>&#x27;localhost&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SERVER_PORT</td>
+          <td class="code"><pre>&#x27;80&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SERVER_PROTOCOL</td>
+          <td class="code"><pre>&#x27;HTTP/1.1&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SERVER_SOFTWARE</td>
+          <td class="code"><pre>&#x27;gunicorn/20.1.0&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>gunicorn.socket</td>
+          <td class="code"><pre>&lt;socket.socket fd=9, family=AddressFamily.AF_UNIX, type=SocketKind.SOCK_STREAM, proto=0, laddr=/run/gunicorn.sock&gt;</pre></td>
+        </tr>
+
+        <tr>
+          <td>wsgi.errors</td>
+          <td class="code"><pre>&lt;gunicorn.http.wsgi.WSGIErrorsWrapper object at 0x7f518072c9d0&gt;</pre></td>
+        </tr>
+
+        <tr>
+          <td>wsgi.file_wrapper</td>
+          <td class="code"><pre>&lt;class &#x27;gunicorn.http.wsgi.FileWrapper&#x27;&gt;</pre></td>
+        </tr>
+
+        <tr>
+          <td>wsgi.input</td>
+          <td class="code"><pre>&lt;gunicorn.http.body.Body object at 0x7f518072cf40&gt;</pre></td>
+        </tr>
+
+        <tr>
+          <td>wsgi.input_terminated</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+
+        <tr>
+          <td>wsgi.multiprocess</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+
+        <tr>
+          <td>wsgi.multithread</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>wsgi.run_once</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>wsgi.url_scheme</td>
+          <td class="code"><pre>&#x27;http&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>wsgi.version</td>
+          <td class="code"><pre>(1, 0)</pre></td>
+        </tr>
+
+    </tbody>
+  </table>
+
+
+  <h3 id="settings-info">Settings</h3>
+  <h4>Using settings module <code>attendance.settings</code></h4>
+  <table class="req">
+    <thead>
+      <tr>
+        <th>Setting</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+          <td>ABSOLUTE_URL_OVERRIDES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+
+        <tr>
+          <td>ADMINS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>ALLOWED_HOSTS</td>
+          <td class="code"><pre>[&#x27;161.35.20.94&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>APPEND_SLASH</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+
+        <tr>
+          <td>AUTHENTICATION_BACKENDS</td>
+          <td class="code"><pre>[&#x27;django.contrib.auth.backends.ModelBackend&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>AUTH_PASSWORD_VALIDATORS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>AUTH_USER_MODEL</td>
+          <td class="code"><pre>&#x27;auth.User&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>BASE_DIR</td>
+          <td class="code"><pre>PosixPath(&#x27;/home/bitsquad/BitAttend&#x27;)</pre></td>
+        </tr>
+
+        <tr>
+          <td>CACHES</td>
+          <td class="code"><pre>{&#x27;default&#x27;: {&#x27;BACKEND&#x27;: &#x27;django.core.cache.backends.locmem.LocMemCache&#x27;}}</pre></td>
+        </tr>
+
+        <tr>
+          <td>CACHE_MIDDLEWARE_ALIAS</td>
+          <td class="code"><pre>&#x27;default&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>CACHE_MIDDLEWARE_SECONDS</td>
+          <td class="code"><pre>600</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_COOKIE_AGE</td>
+          <td class="code"><pre>31449600</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_COOKIE_MASKED</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;csrftoken&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_COOKIE_SAMESITE</td>
+          <td class="code"><pre>&#x27;Lax&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_FAILURE_VIEW</td>
+          <td class="code"><pre>&#x27;django.views.csrf.csrf_failure&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_HEADER_NAME</td>
+          <td class="code"><pre>&#x27;HTTP_X_CSRFTOKEN&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_TRUSTED_ORIGINS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>CSRF_USE_SESSIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>DATABASES</td>
+          <td class="code"><pre>{&#x27;default&#x27;: {&#x27;ATOMIC_REQUESTS&#x27;: False,
+             &#x27;AUTOCOMMIT&#x27;: True,
+             &#x27;CONN_HEALTH_CHECKS&#x27;: False,
+             &#x27;CONN_MAX_AGE&#x27;: 0,
+             &#x27;ENGINE&#x27;: &#x27;django.db.backends.postgresql_psycopg2&#x27;,
+             &#x27;HOST&#x27;: &#x27;localhost&#x27;,
+             &#x27;NAME&#x27;: &#x27;bitattend&#x27;,
+             &#x27;OPTIONS&#x27;: {},
+             &#x27;PASSWORD&#x27;: &#x27;********************&#x27;,
+             &#x27;PORT&#x27;: &#x27;&#x27;,
+             &#x27;TEST&#x27;: {&#x27;CHARSET&#x27;: None,
+                      &#x27;COLLATION&#x27;: None,
+                      &#x27;MIGRATE&#x27;: True,
+                      &#x27;MIRROR&#x27;: None,
+                      &#x27;NAME&#x27;: None},
+             &#x27;TIME_ZONE&#x27;: None,
+             &#x27;USER&#x27;: &#x27;bitsquaduser&#x27;}}</pre></td>
+        </tr>
+
+        <tr>
+          <td>DATABASE_ROUTERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>DATA_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+
+        <tr>
+          <td>DATA_UPLOAD_MAX_NUMBER_FIELDS</td>
+          <td class="code"><pre>1000</pre></td>
+        </tr>
+
+        <tr>
+          <td>DATETIME_FORMAT</td>
+          <td class="code"><pre>&#x27;N j, Y, P&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DATETIME_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%Y-%m-%d %H:%M:%S&#x27;,
+ &#x27;%Y-%m-%d %H:%M:%S.%f&#x27;,
+ &#x27;%Y-%m-%d %H:%M&#x27;,
+ &#x27;%m/%d/%Y %H:%M:%S&#x27;,
+ &#x27;%m/%d/%Y %H:%M:%S.%f&#x27;,
+ &#x27;%m/%d/%Y %H:%M&#x27;,
+ &#x27;%m/%d/%y %H:%M:%S&#x27;,
+ &#x27;%m/%d/%y %H:%M:%S.%f&#x27;,
+ &#x27;%m/%d/%y %H:%M&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>DATE_FORMAT</td>
+          <td class="code"><pre>&#x27;N j, Y&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DATE_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%Y-%m-%d&#x27;,
+ &#x27;%m/%d/%Y&#x27;,
+ &#x27;%m/%d/%y&#x27;,
+ &#x27;%b %d %Y&#x27;,
+ &#x27;%b %d, %Y&#x27;,
+ &#x27;%d %b %Y&#x27;,
+ &#x27;%d %b, %Y&#x27;,
+ &#x27;%B %d %Y&#x27;,
+ &#x27;%B %d, %Y&#x27;,
+ &#x27;%d %B %Y&#x27;,
+ &#x27;%d %B, %Y&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEBUG</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>DECIMAL_SEPARATOR</td>
+          <td class="code"><pre>&#x27;.&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEFAULT_AUTO_FIELD</td>
+          <td class="code"><pre>&#x27;django.db.models.BigAutoField&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEFAULT_CHARSET</td>
+          <td class="code"><pre>&#x27;utf-8&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER</td>
+          <td class="code"><pre>&#x27;django.views.debug.ExceptionReporter&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
+          <td class="code"><pre>&#x27;django.views.debug.SafeExceptionReporterFilter&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEFAULT_FILE_STORAGE</td>
+          <td class="code"><pre>&#x27;django.core.files.storage.FileSystemStorage&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEFAULT_FROM_EMAIL</td>
+          <td class="code"><pre>&#x27;webmaster@localhost&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEFAULT_INDEX_TABLESPACE</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DEFAULT_TABLESPACE</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>DISALLOWED_USER_AGENTS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_BACKEND</td>
+          <td class="code"><pre>&#x27;django.core.mail.backends.smtp.EmailBackend&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_HOST</td>
+          <td class="code"><pre>&#x27;localhost&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_HOST_PASSWORD</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_HOST_USER</td>
+          <td class="code"><pre>&#x27;&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_PORT</td>
+          <td class="code"><pre>25</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_SSL_CERTFILE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_SSL_KEYFILE</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_SUBJECT_PREFIX</td>
+          <td class="code"><pre>&#x27;[Django] &#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_TIMEOUT</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_USE_LOCALTIME</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_USE_SSL</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>EMAIL_USE_TLS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>FILE_UPLOAD_HANDLERS</td>
+          <td class="code"><pre>[&#x27;django.core.files.uploadhandler.MemoryFileUploadHandler&#x27;,
+ &#x27;django.core.files.uploadhandler.TemporaryFileUploadHandler&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
+          <td class="code"><pre>2621440</pre></td>
+        </tr>
+
+        <tr>
+          <td>FILE_UPLOAD_PERMISSIONS</td>
+          <td class="code"><pre>420</pre></td>
+        </tr>
+
+        <tr>
+          <td>FILE_UPLOAD_TEMP_DIR</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>FIRST_DAY_OF_WEEK</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+
+        <tr>
+          <td>FIXTURE_DIRS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>FORCE_SCRIPT_NAME</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>FORMAT_MODULE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>FORM_RENDERER</td>
+          <td class="code"><pre>&#x27;django.forms.renderers.DjangoTemplates&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>IGNORABLE_404_URLS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>INSTALLED_APPS</td>
+          <td class="code"><pre>[&#x27;django.contrib.admin&#x27;,
+ &#x27;django.contrib.auth&#x27;,
+ &#x27;django.contrib.contenttypes&#x27;,
+ &#x27;django.contrib.sessions&#x27;,
+ &#x27;django.contrib.messages&#x27;,
+ &#x27;django.contrib.staticfiles&#x27;,
+ &#x27;bitattend&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>INTERNAL_IPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGES</td>
+          <td class="code"><pre>[(&#x27;af&#x27;, &#x27;Afrikaans&#x27;),
+ (&#x27;ar&#x27;, &#x27;Arabic&#x27;),
+ (&#x27;ar-dz&#x27;, &#x27;Algerian Arabic&#x27;),
+ (&#x27;ast&#x27;, &#x27;Asturian&#x27;),
+ (&#x27;az&#x27;, &#x27;Azerbaijani&#x27;),
+ (&#x27;bg&#x27;, &#x27;Bulgarian&#x27;),
+ (&#x27;be&#x27;, &#x27;Belarusian&#x27;),
+ (&#x27;bn&#x27;, &#x27;Bengali&#x27;),
+ (&#x27;br&#x27;, &#x27;Breton&#x27;),
+ (&#x27;bs&#x27;, &#x27;Bosnian&#x27;),
+ (&#x27;ca&#x27;, &#x27;Catalan&#x27;),
+ (&#x27;cs&#x27;, &#x27;Czech&#x27;),
+ (&#x27;cy&#x27;, &#x27;Welsh&#x27;),
+ (&#x27;da&#x27;, &#x27;Danish&#x27;),
+ (&#x27;de&#x27;, &#x27;German&#x27;),
+ (&#x27;dsb&#x27;, &#x27;Lower Sorbian&#x27;),
+ (&#x27;el&#x27;, &#x27;Greek&#x27;),
+ (&#x27;en&#x27;, &#x27;English&#x27;),
+ (&#x27;en-au&#x27;, &#x27;Australian English&#x27;),
+ (&#x27;en-gb&#x27;, &#x27;British English&#x27;),
+ (&#x27;eo&#x27;, &#x27;Esperanto&#x27;),
+ (&#x27;es&#x27;, &#x27;Spanish&#x27;),
+ (&#x27;es-ar&#x27;, &#x27;Argentinian Spanish&#x27;),
+ (&#x27;es-co&#x27;, &#x27;Colombian Spanish&#x27;),
+ (&#x27;es-mx&#x27;, &#x27;Mexican Spanish&#x27;),
+ (&#x27;es-ni&#x27;, &#x27;Nicaraguan Spanish&#x27;),
+ (&#x27;es-ve&#x27;, &#x27;Venezuelan Spanish&#x27;),
+ (&#x27;et&#x27;, &#x27;Estonian&#x27;),
+ (&#x27;eu&#x27;, &#x27;Basque&#x27;),
+ (&#x27;fa&#x27;, &#x27;Persian&#x27;),
+ (&#x27;fi&#x27;, &#x27;Finnish&#x27;),
+ (&#x27;fr&#x27;, &#x27;French&#x27;),
+ (&#x27;fy&#x27;, &#x27;Frisian&#x27;),
+ (&#x27;ga&#x27;, &#x27;Irish&#x27;),
+ (&#x27;gd&#x27;, &#x27;Scottish Gaelic&#x27;),
+ (&#x27;gl&#x27;, &#x27;Galician&#x27;),
+ (&#x27;he&#x27;, &#x27;Hebrew&#x27;),
+ (&#x27;hi&#x27;, &#x27;Hindi&#x27;),
+ (&#x27;hr&#x27;, &#x27;Croatian&#x27;),
+ (&#x27;hsb&#x27;, &#x27;Upper Sorbian&#x27;),
+ (&#x27;hu&#x27;, &#x27;Hungarian&#x27;),
+ (&#x27;hy&#x27;, &#x27;Armenian&#x27;),
+ (&#x27;ia&#x27;, &#x27;Interlingua&#x27;),
+ (&#x27;id&#x27;, &#x27;Indonesian&#x27;),
+ (&#x27;ig&#x27;, &#x27;Igbo&#x27;),
+ (&#x27;io&#x27;, &#x27;Ido&#x27;),
+ (&#x27;is&#x27;, &#x27;Icelandic&#x27;),
+ (&#x27;it&#x27;, &#x27;Italian&#x27;),
+ (&#x27;ja&#x27;, &#x27;Japanese&#x27;),
+ (&#x27;ka&#x27;, &#x27;Georgian&#x27;),
+ (&#x27;kab&#x27;, &#x27;Kabyle&#x27;),
+ (&#x27;kk&#x27;, &#x27;Kazakh&#x27;),
+ (&#x27;km&#x27;, &#x27;Khmer&#x27;),
+ (&#x27;kn&#x27;, &#x27;Kannada&#x27;),
+ (&#x27;ko&#x27;, &#x27;Korean&#x27;),
+ (&#x27;ky&#x27;, &#x27;Kyrgyz&#x27;),
+ (&#x27;lb&#x27;, &#x27;Luxembourgish&#x27;),
+ (&#x27;lt&#x27;, &#x27;Lithuanian&#x27;),
+ (&#x27;lv&#x27;, &#x27;Latvian&#x27;),
+ (&#x27;mk&#x27;, &#x27;Macedonian&#x27;),
+ (&#x27;ml&#x27;, &#x27;Malayalam&#x27;),
+ (&#x27;mn&#x27;, &#x27;Mongolian&#x27;),
+ (&#x27;mr&#x27;, &#x27;Marathi&#x27;),
+ (&#x27;ms&#x27;, &#x27;Malay&#x27;),
+ (&#x27;my&#x27;, &#x27;Burmese&#x27;),
+ (&#x27;nb&#x27;, &#x27;Norwegian Bokmål&#x27;),
+ (&#x27;ne&#x27;, &#x27;Nepali&#x27;),
+ (&#x27;nl&#x27;, &#x27;Dutch&#x27;),
+ (&#x27;nn&#x27;, &#x27;Norwegian Nynorsk&#x27;),
+ (&#x27;os&#x27;, &#x27;Ossetic&#x27;),
+ (&#x27;pa&#x27;, &#x27;Punjabi&#x27;),
+ (&#x27;pl&#x27;, &#x27;Polish&#x27;),
+ (&#x27;pt&#x27;, &#x27;Portuguese&#x27;),
+ (&#x27;pt-br&#x27;, &#x27;Brazilian Portuguese&#x27;),
+ (&#x27;ro&#x27;, &#x27;Romanian&#x27;),
+ (&#x27;ru&#x27;, &#x27;Russian&#x27;),
+ (&#x27;sk&#x27;, &#x27;Slovak&#x27;),
+ (&#x27;sl&#x27;, &#x27;Slovenian&#x27;),
+ (&#x27;sq&#x27;, &#x27;Albanian&#x27;),
+ (&#x27;sr&#x27;, &#x27;Serbian&#x27;),
+ (&#x27;sr-latn&#x27;, &#x27;Serbian Latin&#x27;),
+ (&#x27;sv&#x27;, &#x27;Swedish&#x27;),
+ (&#x27;sw&#x27;, &#x27;Swahili&#x27;),
+ (&#x27;ta&#x27;, &#x27;Tamil&#x27;),
+ (&#x27;te&#x27;, &#x27;Telugu&#x27;),
+ (&#x27;tg&#x27;, &#x27;Tajik&#x27;),
+ (&#x27;th&#x27;, &#x27;Thai&#x27;),
+ (&#x27;tk&#x27;, &#x27;Turkmen&#x27;),
+ (&#x27;tr&#x27;, &#x27;Turkish&#x27;),
+ (&#x27;tt&#x27;, &#x27;Tatar&#x27;),
+ (&#x27;udm&#x27;, &#x27;Udmurt&#x27;),
+ (&#x27;uk&#x27;, &#x27;Ukrainian&#x27;),
+ (&#x27;ur&#x27;, &#x27;Urdu&#x27;),
+ (&#x27;uz&#x27;, &#x27;Uzbek&#x27;),
+ (&#x27;vi&#x27;, &#x27;Vietnamese&#x27;),
+ (&#x27;zh-hans&#x27;, &#x27;Simplified Chinese&#x27;),
+ (&#x27;zh-hant&#x27;, &#x27;Traditional Chinese&#x27;)]</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGES_BIDI</td>
+          <td class="code"><pre>[&#x27;he&#x27;, &#x27;ar&#x27;, &#x27;ar-dz&#x27;, &#x27;fa&#x27;, &#x27;ur&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGE_CODE</td>
+          <td class="code"><pre>&#x27;en-us&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGE_COOKIE_AGE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGE_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGE_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGE_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;django_language&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGE_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGE_COOKIE_SAMESITE</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>LANGUAGE_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>LOCALE_PATHS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>LOGGING</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+
+        <tr>
+          <td>LOGGING_CONFIG</td>
+          <td class="code"><pre>&#x27;logging.config.dictConfig&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>LOGIN_REDIRECT_URL</td>
+          <td class="code"><pre>&#x27;/accounts/profile/&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>LOGIN_URL</td>
+          <td class="code"><pre>&#x27;/accounts/login/&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>LOGOUT_REDIRECT_URL</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>MANAGERS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>MEDIA_ROOT</td>
+          <td class="code"><pre>&#x27;/home/bitsquad/BitAttend/static/media&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>MEDIA_URL</td>
+          <td class="code"><pre>&#x27;/media/&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>MESSAGE_STORAGE</td>
+          <td class="code"><pre>&#x27;django.contrib.messages.storage.fallback.FallbackStorage&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>MIDDLEWARE</td>
+          <td class="code"><pre>[&#x27;django.middleware.security.SecurityMiddleware&#x27;,
+ &#x27;django.contrib.sessions.middleware.SessionMiddleware&#x27;,
+ &#x27;django.middleware.common.CommonMiddleware&#x27;,
+ &#x27;django.middleware.csrf.CsrfViewMiddleware&#x27;,
+ &#x27;django.contrib.auth.middleware.AuthenticationMiddleware&#x27;,
+ &#x27;django.contrib.messages.middleware.MessageMiddleware&#x27;,
+ &#x27;django.middleware.clickjacking.XFrameOptionsMiddleware&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>MIGRATION_MODULES</td>
+          <td class="code"><pre>{}</pre></td>
+        </tr>
+
+        <tr>
+          <td>MONTH_DAY_FORMAT</td>
+          <td class="code"><pre>&#x27;F j&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>NUMBER_GROUPING</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+
+        <tr>
+          <td>PASSWORD_HASHERS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>PASSWORD_RESET_TIMEOUT</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>PREPEND_WWW</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>PROJECT_ROOT</td>
+          <td class="code"><pre>&#x27;/home/bitsquad/BitAttend/attendance&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>ROOT_URLCONF</td>
+          <td class="code"><pre>&#x27;attendance.urls&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECRET_KEY</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECRET_KEY_FALLBACKS</td>
+          <td class="code"><pre>&#x27;********************&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_CONTENT_TYPE_NOSNIFF</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_CROSS_ORIGIN_OPENER_POLICY</td>
+          <td class="code"><pre>&#x27;same-origin&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_HSTS_INCLUDE_SUBDOMAINS</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_HSTS_PRELOAD</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_HSTS_SECONDS</td>
+          <td class="code"><pre>0</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_PROXY_SSL_HEADER</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_REDIRECT_EXEMPT</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_REFERRER_POLICY</td>
+          <td class="code"><pre>&#x27;same-origin&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_SSL_HOST</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>SECURE_SSL_REDIRECT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>SERVER_EMAIL</td>
+          <td class="code"><pre>&#x27;root@localhost&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_CACHE_ALIAS</td>
+          <td class="code"><pre>&#x27;default&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_COOKIE_AGE</td>
+          <td class="code"><pre>1209600</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_COOKIE_DOMAIN</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_COOKIE_HTTPONLY</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_COOKIE_NAME</td>
+          <td class="code"><pre>&#x27;sessionid&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_COOKIE_PATH</td>
+          <td class="code"><pre>&#x27;/&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_COOKIE_SAMESITE</td>
+          <td class="code"><pre>&#x27;Lax&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_COOKIE_SECURE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_ENGINE</td>
+          <td class="code"><pre>&#x27;django.contrib.sessions.backends.db&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_FILE_PATH</td>
+          <td class="code"><pre>None</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_SAVE_EVERY_REQUEST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>SESSION_SERIALIZER</td>
+          <td class="code"><pre>&#x27;django.contrib.sessions.serializers.JSONSerializer&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SETTINGS_MODULE</td>
+          <td class="code"><pre>&#x27;attendance.settings&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SHORT_DATETIME_FORMAT</td>
+          <td class="code"><pre>&#x27;m/d/Y P&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SHORT_DATE_FORMAT</td>
+          <td class="code"><pre>&#x27;m/d/Y&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SIGNING_BACKEND</td>
+          <td class="code"><pre>&#x27;django.core.signing.TimestampSigner&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>SILENCED_SYSTEM_CHECKS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>STATICFILES_DIRS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>STATICFILES_FINDERS</td>
+          <td class="code"><pre>[&#x27;django.contrib.staticfiles.finders.FileSystemFinder&#x27;,
+ &#x27;django.contrib.staticfiles.finders.AppDirectoriesFinder&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>STATICFILES_STORAGE</td>
+          <td class="code"><pre>&#x27;django.contrib.staticfiles.storage.StaticFilesStorage&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>STATIC_ROOT</td>
+          <td class="code"><pre>&#x27;/home/bitsquad/BitAttend/attendance/static&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>STATIC_URL</td>
+          <td class="code"><pre>&#x27;/static/&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>TEMPLATES</td>
+          <td class="code"><pre>[{&#x27;APP_DIRS&#x27;: True,
+  &#x27;BACKEND&#x27;: &#x27;django.template.backends.django.DjangoTemplates&#x27;,
+  &#x27;DIRS&#x27;: [PosixPath(&#x27;/home/bitsquad/BitAttend/templates&#x27;)],
+  &#x27;OPTIONS&#x27;: {&#x27;context_processors&#x27;: [&#x27;django.template.context_processors.debug&#x27;,
+                                     &#x27;django.template.context_processors.request&#x27;,
+                                     &#x27;django.contrib.auth.context_processors.auth&#x27;,
+                                     &#x27;django.contrib.messages.context_processors.messages&#x27;]}}]</pre></td>
+        </tr>
+
+        <tr>
+          <td>TEMPLATE_DIR</td>
+          <td class="code"><pre>&#x27;/home/bitsquad/BitAttend/templates&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>TEST_NON_SERIALIZED_APPS</td>
+          <td class="code"><pre>[]</pre></td>
+        </tr>
+
+        <tr>
+          <td>TEST_RUNNER</td>
+          <td class="code"><pre>&#x27;django.test.runner.DiscoverRunner&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>&#x27;,&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>TIME_FORMAT</td>
+          <td class="code"><pre>&#x27;P&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>TIME_INPUT_FORMATS</td>
+          <td class="code"><pre>[&#x27;%H:%M:%S&#x27;, &#x27;%H:%M:%S.%f&#x27;, &#x27;%H:%M&#x27;]</pre></td>
+        </tr>
+
+        <tr>
+          <td>TIME_ZONE</td>
+          <td class="code"><pre>&#x27;Asia/Kolkata&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>USE_DEPRECATED_PYTZ</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>USE_I18N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+
+        <tr>
+          <td>USE_L10N</td>
+          <td class="code"><pre>True</pre></td>
+        </tr>
+
+        <tr>
+          <td>USE_THOUSAND_SEPARATOR</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>USE_TZ</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>USE_X_FORWARDED_HOST</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>USE_X_FORWARDED_PORT</td>
+          <td class="code"><pre>False</pre></td>
+        </tr>
+
+        <tr>
+          <td>WSGI_APPLICATION</td>
+          <td class="code"><pre>&#x27;attendance.wsgi.application&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>X_FRAME_OPTIONS</td>
+          <td class="code"><pre>&#x27;DENY&#x27;</pre></td>
+        </tr>
+
+        <tr>
+          <td>YEAR_MONTH_FORMAT</td>
+          <td class="code"><pre>&#x27;F Y&#x27;</pre></td>
+        </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+  <div id="explanation">
+    <p>
+      You’re seeing this error because you have <code>DEBUG = True</code> in your
+      Django settings file. Change that to <code>False</code>, and Django will
+      display a standard page generated by the handler for this status code.
+    </p>
+  </div>
+
+</body>
+</html>
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl status gunicorn
+● gunicorn.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2023-03-29 21:23:19 UTC; 1min 8s ago
+TriggeredBy: ● gunicorn.socket
+   Main PID: 55066 (gunicorn)
+      Tasks: 4 (limit: 1116)
+     Memory: 95.8M
+        CPU: 1.719s
+     CGroup: /system.slice/gunicorn.service
+             ├─55066 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+             ├─55067 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+             ├─55068 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+             └─55069 /home/bitsquad/BitAttend/env/bin/python /home/bitsquad/BitAttend/env/bin/gunicorn >
+
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:     response = get_response(request)
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:   File "/home/bitsquad/BitAttend/env/lib/python3.10/sit>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:     response = self.process_request(request)
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:   File "/home/bitsquad/BitAttend/env/lib/python3.10/sit>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:     host = request.get_host()
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:   File "/home/bitsquad/BitAttend/env/lib/python3.10/sit>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:     raise DisallowedHost(msg)
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOS>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]: Bad Request: /
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:  - - [30/Mar/2023:02:54:21 +0530] "GET / HTTP/1.1" 400 >
+lines 1-24/24 (END)
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo journalctl -u gunicorn
+Mar 29 21:23:19 bitsquadattend systemd[1]: Started gunicorn daemon.
+Mar 29 21:23:20 bitsquadattend gunicorn[55066]: [2023-03-29 21:23:20 +0000] [55066] [INFO] Starting gun>
+Mar 29 21:23:20 bitsquadattend gunicorn[55066]: [2023-03-29 21:23:20 +0000] [55066] [INFO] Listening at>
+Mar 29 21:23:20 bitsquadattend gunicorn[55066]: [2023-03-29 21:23:20 +0000] [55066] [INFO] Using worker>
+Mar 29 21:23:20 bitsquadattend gunicorn[55067]: [2023-03-29 21:23:20 +0000] [55067] [INFO] Booting work>
+Mar 29 21:23:20 bitsquadattend gunicorn[55068]: [2023-03-29 21:23:20 +0000] [55068] [INFO] Booting work>
+Mar 29 21:23:20 bitsquadattend gunicorn[55069]: [2023-03-29 21:23:20 +0000] [55069] [INFO] Booting work>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]: Invalid HTTP_HOST header: 'localhost'. You may need to >
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]: Traceback (most recent call last):
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:   File "/home/bitsquad/BitAttend/env/lib/python3.10/sit>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:     response = get_response(request)
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:   File "/home/bitsquad/BitAttend/env/lib/python3.10/sit>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:     response = self.process_request(request)
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:   File "/home/bitsquad/BitAttend/env/lib/python3.10/sit>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:     host = request.get_host()
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:   File "/home/bitsquad/BitAttend/env/lib/python3.10/sit>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:     raise DisallowedHost(msg)
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]: django.core.exceptions.DisallowedHost: Invalid HTTP_HOS>
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]: Bad Request: /
+Mar 29 21:24:21 bitsquadattend gunicorn[55069]:  - - [30/Mar/2023:02:54:21 +0530] "GET / HTTP/1.1" 400 >
+lines 1-20/20 (END)
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl daemon-reload
+sudo systemctl restart gunicorn
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo nano /etc/nginx/sites-available/bitsquad
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo ln -s /etc/nginx/sites-available/bitsquad /etc/nginx/sites-enabled
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo nginx -t
+nginx: [emerg] unknown directive "pstream" in /etc/nginx/sites-enabled/BitAttend:1
+nginx: configuration file /etc/nginx/nginx.conf test failed
+(env) bitsquad@bitsquadattend:~/BitAttend$ load_module /usr/lib/nginx/modules/ngx_stream_module.so;
+load_module: command not found
+(env) bitsquad@bitsquadattend:~/BitAttend$ vim /etc/nginx/nginx.conf
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo vim /etc/nginx/nginx.conf
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo nginx -t
+nginx: [emerg] module "ngx_stream_module" is already loaded in /etc/nginx/modules-enabled/50-mod-stream.conf:1
+nginx: configuration file /etc/nginx/nginx.conf test failed
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo vim /etc/nginx/nginx.conf
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo nginx -t
+nginx: [emerg] unknown directive "pstream" in /etc/nginx/sites-enabled/BitAttend:1
+nginx: configuration file /etc/nginx/nginx.conf test failed
+(env) bitsquad@bitsquadattend:~/BitAttend$ rm /etc/nginx/sites-enabled/BitAttend
+rm: cannot remove '/etc/nginx/sites-enabled/BitAttend': Permission denied
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo rm /etc/nginx/sites-enabled/BitAttend
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo nginx -t
+nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+(env) bitsquad@bitsquadattend:~/BitAttend$ est is succe^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ ^C
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo systemctl restart nginx
+(env) bitsquad@bitsquadattend:~/BitAttend$ sudo ufw delete allow 8000
+sudo ufw allow 'Nginx Full'
+Rule deleted
+Rule deleted (v6)
+Rule added
+Rule added (v6)
+(env) bitsquad@bitsquadattend:~/BitAttend$
+
+
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
